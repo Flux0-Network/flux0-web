@@ -1,31 +1,11 @@
-# Discord Verification Bot
+# Flux0
 
-A Discord bot that lets users create accounts and verify themselves via a code sent to their DMs.
+Crypto-Trading Discord Community — flux0.dev
 
-## Setup
+## Website
 
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+Landing Page liegt unter `web/`. Auf Cloudflare Pages / Vercel deployen oder `web/index.html` lokal im Browser öffnen.
 
-2. Copy `.env.example` to `.env` and fill in your bot token:
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Run the bot:
-   ```bash
-   python bot.py
-   ```
-
-## Commands
-
-- `/setup` — Posts the account creation panel in the current channel
-- `/account` — Shows your account ID and verification status
-
-## Flow
-
-1. User clicks **Create Account** → account is created and a code is sent via DM
-2. User clicks **Code eingeben** → enters the code in a modal
-3. On success, the verified role is assigned automatically
+**Vor dem Go-Live anpassen:**
+- `web/index.html` — Discord-Invite-Link eintragen (`INVITE_HIER` ersetzen)
+- `web/index.html` — Team-Namen, Rollen und Bios aktualisieren
