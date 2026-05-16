@@ -66,7 +66,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 .feature-card:hover { background: #1c1c1c; }
 .feature-card--accent { background: #141414; }
 .feature-card--accent:hover { background: #181818; }
-.feature-num { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--dim); margin-bottom: 16px; }
+.feature-icon { width: 38px; height: 38px; border-radius: 10px; background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--accent); }
 .feature-card h3 { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
 .feature-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.65; margin-bottom: 20px; }
 .feature-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
