@@ -73,16 +73,6 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 .feature-list li { font-size: 0.82rem; color: var(--dim); display: flex; align-items: center; gap: 8px; }
 .feature-list li::before { content: '—'; color: var(--border); font-size: 0.75rem; }
 
-.team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-.team-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: flex; gap: 16px; align-items: flex-start; transition: border-color 0.2s; }
-.team-card:hover { border-color: #333; }
-.team-avatar { width: 44px; height: 44px; flex-shrink: 0; border-radius: 10px; background: var(--c, var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: #fff; }
-.team-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-.team-role { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; margin-bottom: 8px; }
-.team-role.owner { background: rgba(139,92,246,0.15); color: #a78bfa; }
-.team-role.admin { background: rgba(8,145,178,0.15); color: #22d3ee; }
-.team-role.mod { background: rgba(5,150,105,0.15); color: #34d399; }
-.team-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
 
 .cta-inner { max-width: 520px; }
 .cta-inner h2 { font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 12px; }
@@ -92,7 +82,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .footer-copy { font-size: 0.8rem; color: var(--dim); }
 
-@media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; gap: 1px; } .team-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; gap: 1px; } }
 @media (max-width: 640px) {
   .nav-links, .powered, .btn-join { display: none; }
   .nav-toggle { display: flex; }
