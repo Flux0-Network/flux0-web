@@ -22,7 +22,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; gap: 24px; }
 .logo { font-size: 1.15rem; font-weight: 800; text-decoration: none; color: var(--text); letter-spacing: -0.03em; display: flex; align-items: center; gap: 8px; }
 .logo span { color: var(--accent); }
-.logo-img { height: 100px; width: auto; display: block; flex-shrink: 0; }
+.logo-img { height: 58px; width: auto; display: block; flex-shrink: 0; }
 .nav-links { display: flex; list-style: none; gap: 24px; margin-left: auto; }
 .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 500; transition: color 0.15s; }
 .nav-links a:hover { color: var(--text); }
