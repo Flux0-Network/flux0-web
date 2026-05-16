@@ -1,0 +1,6 @@
+<svg viewBox="0 0 440 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top shape: wide angular bar -->
+  <polygon points="30,60 410,60 410,170 270,240 170,240 30,170" fill="#7c3aed"/>
+  <!-- Bottom shape: smaller angular bracket -->
+  <polygon points="170,265 270,265 270,400 220,400 220,315 100,315 100,265" fill="#7c3aed"/>
+</svg>
