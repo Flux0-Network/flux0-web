@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Flux0</title>
+  <meta name="description" content="Dein Flux0 Dashboard — verwalte dein Konto und sieh deinen Verifizierungsstatus." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Flux0" class="logo-img"/>
+      </a>
+      <ul class="nav-links">
+        <li><a href="news.html">Neuigkeiten</a></li>
+        <li><a href="dashboard.html" class="nav-active">Dashboard</a></li>
+      </ul>
+      <span class="powered">Powered by <strong>Flux Network</strong></span>
+      <a href="https://discord.gg/gRwbpsGmaf" class="btn-join" target="_blank" rel="noopener">Joinen</a>
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero hero--small">
+    <div class="container">
+      <div class="hero-label">
+        <span class="dot"></span>
+        PROFIL · KONTO · VERIFIZIERUNG
+      </div>
+      <h1>Dashboard</h1>
+      <p class="hero-sub">Verwalte dein Flux0-Konto und sieh deinen Verifizierungsstatus auf einen Blick.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div id="view-login" style="display:none">
+        <div class="dash-login-card">
+          <div class="dash-login-icon">
+            <svg width="28" height="28" viewBox="0 0 71 55" fill="currentColor"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.5.7a.2.2 0 0 0-.2.1 40.7 40.7 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A37.7 37.7 0 0 0 25.5.8a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.7 4.9a.2.2 0 0 0-.1.1C1.6 18.1-.9 31 .3 43.7a.2.2 0 0 0 .1.1 58.8 58.8 0 0 0 17.7 9 .2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4l1.1-.8a.2.2 0 0 1 .2 0c11.6 5.3 24.1 5.3 35.5 0a.2.2 0 0 1 .2 0l1.1.8a.2.2 0 0 1 0 .4 36 36 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47.1 47.1 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.6 58.6 0 0 0 17.8-9 .2.2 0 0 0 .1-.1c1.5-15.2-2.5-28-10.6-39.7a.2.2 0 0 0-.1-.1ZM23.7 36.1c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Zm23.7 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Z"/></svg>
+          </div>
+          <h2>Mit Discord einloggen</h2>
+          <p>Verbinde deinen Discord-Account um dein Profil zu sehen.</p>
+          <a href="/api/login" class="btn-primary" style="width:100%;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 71 55" fill="currentColor"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.5.7a.2.2 0 0 0-.2.1 40.7 40.7 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A37.7 37.7 0 0 0 25.5.8a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.7 4.9a.2.2 0 0 0-.1.1C1.6 18.1-.9 31 .3 43.7a.2.2 0 0 0 .1.1 58.8 58.8 0 0 0 17.7 9 .2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4l1.1-.8a.2.2 0 0 1 .2 0c11.6 5.3 24.1 5.3 35.5 0a.2.2 0 0 1 .2 0l1.1.8a.2.2 0 0 1 0 .4 36 36 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47.1 47.1 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.6 58.6 0 0 0 17.8-9 .2.2 0 0 0 .1-.1c1.5-15.2-2.5-28-10.6-39.7a.2.2 0 0 0-.1-.1ZM23.7 36.1c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Zm23.7 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Z"/></svg>
+            Mit Discord einloggen
+          </a>
+          <p class="dash-login-note">Du brauchst einen Account beim Flux0-Bot. <code>/register</code> im Discord-Server.</p>
+        </div>
+      </div>
+
+      <div id="view-dashboard" style="display:none">
+        <div class="dash-profile">
+          <div id="dash-avatar-wrap"></div>
+          <div class="dash-profile-info">
+            <h2 id="dash-username"></h2>
+            <span class="dash-id" id="dash-discord-id"></span>
+          </div>
+          <a href="/api/logout" class="btn-ghost dash-logout">Ausloggen →</a>
+        </div>
+
+        <div id="dash-notice"></div>
+
+        <div class="dash-stats">
+          <div class="dash-stat-card">
+            <div class="stat-label">Verifizierungsstatus</div>
+            <div class="stat-value" id="stat-verified"></div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="stat-label">Account-ID</div>
+            <div class="stat-value stat-value--mono" id="stat-account-id"></div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="stat-label">Registriert seit</div>
+            <div class="stat-value stat-value--mono" id="stat-created-at"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 Flux0 · flux0.dev</span>
+      <span class="powered">Powered by <strong>Flux Network</strong></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function showLogin() {
+      document.getElementById('view-login').style.display = 'block';
+    }
+
+    function formatDate(str) {
+      if (!str) return '—';
+      const d = new Date(str);
+      if (isNaN(d)) return str;
+      return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+
+    function showDashboard(data) {
+      document.getElementById('view-dashboard').style.display = 'block';
+
+      document.getElementById('dash-username').textContent = data.username;
+      document.getElementById('dash-discord-id').textContent = data.discord_id;
+
+      const avatarWrap = document.getElementById('dash-avatar-wrap');
+      if (data.avatar) {
+        const img = document.createElement('img');
+        img.className = 'dash-avatar';
+        img.src = `https://cdn.discordapp.com/avatars/${data.discord_id}/${data.avatar}.png?size=128`;
+        img.alt = data.username;
+        avatarWrap.appendChild(img);
+      } else {
+        const ph = document.createElement('div');
+        ph.className = 'dash-avatar-placeholder';
+        ph.textContent = (data.username || '?')[0].toUpperCase();
+        avatarWrap.appendChild(ph);
+      }
+
+      const account = data.account;
+      const noticeEl = document.getElementById('dash-notice');
+
+      if (!account) {
+        document.getElementById('stat-verified').innerHTML = '<span class="stat-value--red">✗</span>';
+        document.getElementById('stat-account-id').textContent = 'Nicht verknüpft';
+        document.getElementById('stat-created-at').textContent = '—';
+        noticeEl.innerHTML = '<div class="dash-notice dash-notice--info">Kein Konto gefunden — registriere dich mit <code>/register</code> im Flux0-Discord-Server.</div>';
+        return;
+      }
+
+      if (account.verified) {
+        document.getElementById('stat-verified').innerHTML = '<span class="stat-value--green">✓</span>';
+      } else {
+        document.getElementById('stat-verified').innerHTML = '<span class="stat-value--red">✗</span>';
+        noticeEl.innerHTML = `<div class="dash-notice dash-notice--warn">Noch nicht verifiziert — Dein Code: <code>${account.code || '—'}</code> — Nutze <code>/verify</code> im Discord-Server.</div>`;
+      }
+
+      document.getElementById('stat-account-id').textContent = account.account_id || '—';
+      document.getElementById('stat-created-at').textContent = formatDate(account.created_at);
+    }
+
+    fetch('/api/me', { credentials: 'include' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => showDashboard(data))
+      .catch(() => showLogin());
+  </script>
+</body>
+</html>
