@@ -87,7 +87,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 
 
 .features-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
+  display: grid; grid-template-columns: repeat(4,1fr);
   gap: 2px; border: 1px solid var(--border);
   border-radius: var(--radius); overflow: hidden;
 }
