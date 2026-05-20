@@ -87,7 +87,13 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 
 
 .features-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+  background: var(--border); /* ← Trennlinien */
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 .feature-card:hover { background: #1c1c1c; }
 .feature-card--accent { background: #141414; }
