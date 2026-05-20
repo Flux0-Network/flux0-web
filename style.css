@@ -91,6 +91,9 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
   gap: 2px; border: 1px solid var(--border);
   border-radius: var(--radius); overflow: hidden;
 }
+.feature-card {
+  background: var(--surface); padding: 32px 28px; transition: background 0.2s;
+}
 .feature-card:hover { background: #1c1c1c; }
 .feature-card--accent { background: #141414; }
 .feature-card--accent:hover { background: #181818; }
