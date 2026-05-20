@@ -183,6 +183,27 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 @media (max-width: 640px) { .dash-stats { grid-template-columns: 1fr; } .dash-profile { flex-direction: column; } .dash-logout { top: 16px; right: 16px; } }
 
 /* =========================
+   Producte
+========================= */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.products-grid .feature-card:nth-child(3) {
+  grid-column: span 2;
+  max-width: 50%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* =========================
    102 PAGE
 ========================= */
 
