@@ -85,7 +85,15 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 .update-body { color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
 .update-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; background: #1f1f1f; padding: 1px 6px; border-radius: 4px; color: var(--text); }
 
-.features-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.features-grid {
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(260px,1fr));
+  gap:2px;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
 .feature-card { background: var(--surface); padding: 32px 28px; transition: background 0.2s; }
 .feature-card:hover { background: #1c1c1c; }
 .feature-card--accent { background: #141414; }
