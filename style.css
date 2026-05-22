@@ -137,6 +137,32 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 .cta-inner h2 { font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 12px; }
 .cta-inner p { color: var(--muted); margin-bottom: 28px; }
 
+.mitteilung {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(34, 34, 34, 0.5); /* halb transparent */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+  cursor: pointer;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.close:hover {
+  color: white;
+}
+
 .footer { border-top: 1px solid var(--border); padding: 24px 0; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .footer-copy { font-size: 0.8rem; color: var(--dim); }
