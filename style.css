@@ -68,6 +68,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 
 .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-in-out infinite; }
 .dot--red { background: var(--red); }
+.dot--blau { background: var(--blau);}
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
 .section-label-row { display: flex; align-items: center; gap: 10px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 40px; }
