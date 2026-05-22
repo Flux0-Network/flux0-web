@@ -14,7 +14,8 @@
    /* DOT farben */
   --red:     #ef4444;
   --blau:    #87CEFA;
-  --gelb: 	   #EEEE00;
+  --gelb: 	 #EEEE00;
+  --orange:  #FF8000;
 
 }
 
@@ -73,6 +74,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 .dot--red { background: var(--red); }
 .dot--blau { background: var(--blau);}
 .dot--gelb { background: var(--gelb);}
+.dot--orange { background: var(--orange);}
 
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
