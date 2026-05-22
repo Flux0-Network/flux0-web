@@ -14,6 +14,8 @@
    /* DOT farben */
   --red:     #ef4444;
   --blau:    #87CEFA;
+  --gelb: 	   #EEEE00;
+
 }
 
 html { scroll-behavior: smooth; }
