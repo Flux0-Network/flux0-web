@@ -16,6 +16,7 @@
   --blau:    #87CEFA;
   --gelb: 	 #EEEE00;
   --orange:  #FF8000;
+  --grün:    #22AB74;
 
 }
 
@@ -75,6 +76,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 .dot--blau { background: var(--blau);}
 .dot--gelb { background: var(--gelb);}
 .dot--orange { background: var(--orange);}
+.dot--grün { background: var(--grün);}
 
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
