@@ -163,6 +163,18 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
   color: white;
 }
 
+/* Socials */
+.socials{display:flex;justify-content:center;gap:14px;margin-bottom:26px;}
+.socials a{
+  display:inline-flex;width:34px;height:34px;border-radius:12px;
+  align-items:center;justify-content:center;text-decoration:none;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  transition:transform .18s ease, background .18s ease;
+}
+.socials a:hover{transform:translateY(-2px);background:rgba(255,255,255,.12);}
+.socials svg{width:17px;height:17px;fill:#d0d5e1;}
+
 .footer { border-top: 1px solid var(--border); padding: 24px 0; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .footer-copy { font-size: 0.8rem; color: var(--dim); }
