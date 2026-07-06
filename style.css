@@ -130,6 +130,22 @@ body {
 }
 .btn-primary:hover { background: #6d28d9; }
 
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,0.25); }
+
 .btn-ghost {
   display: inline-flex;
   align-items: center;
