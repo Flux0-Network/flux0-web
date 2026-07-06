@@ -580,16 +580,12 @@ kbd {
 }
 .community-card:hover { border-color: var(--border-md); box-shadow: var(--shadow-md); }
 .community-card--tall { grid-row: span 1; }
-.community-card--accent {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-.community-card--accent:hover { border-color: #6d28d9; box-shadow: 0 8px 24px -4px rgba(124,58,237,0.3); }
-.community-card--accent h3 { color: #fff; }
-.community-card--accent p  { color: #fff; opacity: 0.9; }
-.community-card--accent .feature-list li { color: #fff; opacity: 0.8; }
-.community-card--accent .feature-list li::before { color: rgba(255,255,255,0.4); }
-.community-card--accent .community-card-icon { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.25); color: #fff; }
+.community-card--yellow { border-top: 3px solid #f59e0b; }
+.community-card--purple { border-top: 3px solid var(--accent); }
+.community-card--blue   { border-top: 3px solid #3b82f6; }
+.community-card--green  { border-top: 3px solid #22c55e; }
+
+.feature-icon--purple { background: var(--accent-lt); border: 1px solid #ddd6fe; color: var(--accent); }
 
 .community-card-icon {
   width: 42px; height: 42px;
