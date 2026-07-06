@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docs — Flux0</title>
+  <meta name="description" content="Dokumentation für LumaSpace, FlowWave und LyqDex." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="docs-body">
+
+  <!-- DOCS HEADER -->
+  <header class="docs-header">
+    <div class="docs-header-inner">
+      <a href="index.html" class="docs-logo">
+        <img src="logo.png" alt="Flux0" class="logo-img" style="height:26px" />
+        <span class="docs-logo-text">Flux<span style="color:var(--accent)">0</span> <span class="docs-logo-sep">/</span> Docs</span>
+      </a>
+      <div class="docs-header-search">
+        <div class="docs-search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>Suchen…</span>
+          <kbd>⌘K</kbd>
+        </div>
+      </div>
+      <nav class="docs-header-nav">
+        <a href="index.html" class="docs-header-link">← flux0.dev</a>
+        <a href="https://discord.gg/yqQutP6EKV" class="btn-primary" target="_blank" rel="noopener" style="font-size:0.8rem;padding:6px 14px">Discord</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="docs-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="docs-sidebar">
+      <div class="docs-sidebar-inner">
+
+        <div class="docs-nav-group">
+          <span class="docs-nav-group-label">Übersicht</span>
+          <a href="#intro" class="docs-nav-link docs-nav-link--active">Einführung</a>
+          <a href="#getting-started" class="docs-nav-link">Erste Schritte</a>
+        </div>
+
+        <div class="docs-nav-group">
+          <div class="docs-nav-product-badge docs-nav-product-badge--luma">✦ LumaSpace</div>
+          <a href="#lumaspace-intro" class="docs-nav-link">Übersicht</a>
+          <a href="#lumaspace-start" class="docs-nav-link">Quickstart</a>
+          <a href="#lumaspace-features" class="docs-nav-link">Features</a>
+          <a href="#lumaspace-api" class="docs-nav-link">API</a>
+        </div>
+
+        <div class="docs-nav-group">
+          <div class="docs-nav-product-badge docs-nav-product-badge--flow">〜 FlowWave</div>
+          <a href="#flowwave-intro" class="docs-nav-link">Übersicht</a>
+          <a href="#flowwave-install" class="docs-nav-link">Installation</a>
+          <a href="#flowwave-quickstart" class="docs-nav-link">Quick Start</a>
+          <a href="#flowwave-commands" class="docs-nav-link">Slash Commands</a>
+          <a href="#flowwave-events" class="docs-nav-link">Events</a>
+          <a href="#flowwave-components" class="docs-nav-link">Components</a>
+          <a href="#flowwave-examples" class="docs-nav-link">Beispiele</a>
+        </div>
+
+        <div class="docs-nav-group">
+          <div class="docs-nav-product-badge docs-nav-product-badge--lyq">⬡ LyqDex</div>
+          <a href="#lyqdex-intro" class="docs-nav-link">Protokoll</a>
+          <a href="#lyqdex-start" class="docs-nav-link">Erste Schritte</a>
+          <a href="#lyqdex-pools" class="docs-nav-link">Liquidity Pools</a>
+          <a href="#lyqdex-api" class="docs-nav-link">API Reference</a>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="docs-main">
+      <div class="docs-content">
+
+        <!-- INTRO -->
+        <section class="docs-section" id="intro">
+          <div class="docs-breadcrumb">Docs / Einführung</div>
+          <h1 class="docs-h1">Flux0 Dokumentation</h1>
+          <p class="docs-lead">Willkommen in der offiziellen Dokumentation des Flux Network. Hier findest du alles zu unseren Produkten — von der ersten Installation bis zur API-Referenz.</p>
+
+          <div class="docs-cards-row">
+            <a href="#flowwave-install" class="docs-quick-card">
+              <span class="docs-quick-icon">〜</span>
+              <div>
+                <strong>FlowWave</strong>
+                <p>pycord v2 Bot Builder</p>
+              </div>
+            </a>
+            <a href="#lumaspace-start" class="docs-quick-card">
+              <span class="docs-quick-icon">✦</span>
+              <div>
+                <strong>LumaSpace</strong>
+                <p>Produktivitätsplattform</p>
+              </div>
+            </a>
+            <a href="#lyqdex-intro" class="docs-quick-card">
+              <span class="docs-quick-icon">⬡</span>
+              <div>
+                <strong>LyqDex</strong>
+                <p>DEX-Protokoll</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="docs-section" id="getting-started">
+          <h2 class="docs-h2">Erste Schritte</h2>
+          <p>Wähle ein Produkt aus dem Menü links oder klick direkt auf eine der Karten oben. Alle Produkte sind eigenständig — du kannst mit jedem beginnen, das dich interessiert.</p>
+          <div class="docs-callout docs-callout--info">
+            <strong>Hinweis:</strong> LumaSpace ist bereits live. FlowWave und LyqDex befinden sich in aktiver Entwicklung — die Dokumentation wird laufend aktualisiert.
+          </div>
+        </section>
+
+        <div class="docs-divider"></div>
+
+        <!-- ═══════════════ LUMASPACE ═══════════════ -->
+        <div class="docs-product-header docs-product-header--luma" id="lumaspace-intro">
+          <span class="docs-product-icon">✦</span>
+          <div>
+            <h2 class="docs-h1" style="margin:0">LumaSpace</h2>
+            <span class="docs-product-tag docs-product-tag--live">Live</span>
+          </div>
+        </div>
+
+        <section class="docs-section">
+          <p class="docs-lead">LumaSpace ist eine KI-gestützte Produktivitäts- und Planungsplattform für Teams und Einzelpersonen mit Fokus auf Realtime Collaboration und intelligente Task-Organisation.</p>
+
+          <h3 class="docs-h3">Was ist LumaSpace?</h3>
+          <p>LumaSpace kombiniert Task-Management, Focus-Sessions und Team-Koordination in einer einzigen Oberfläche. Die KI analysiert Workload und schlägt optimale Zeitpläne vor.</p>
+
+          <div class="docs-feature-list">
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">⚡</span>
+              <div><strong>Realtime Collaboration</strong> — Änderungen sind sofort für alle Teammitglieder sichtbar</div>
+            </div>
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">🧠</span>
+              <div><strong>AI Planning</strong> — Automatische Priorisierung und Scheduling basierend auf Deadlines</div>
+            </div>
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">🎯</span>
+              <div><strong>Focus Mode</strong> — Deep-Work-Sessions mit automatischem Status und Do-not-disturb</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="lumaspace-start">
+          <h2 class="docs-h2">Quickstart</h2>
+          <p>LumaSpace ist eine Web-App — keine Installation notwendig.</p>
+
+          <div class="docs-step">
+            <span class="docs-step-num">1</span>
+            <div>
+              <strong>Account erstellen</strong>
+              <p>Gehe zu <a href="https://lumaspace.de" target="_blank" rel="noopener" class="docs-link">lumaspace.de</a> und registriere dich kostenlos.</p>
+            </div>
+          </div>
+          <div class="docs-step">
+            <span class="docs-step-num">2</span>
+            <div>
+              <strong>Workspace anlegen</strong>
+              <p>Erstelle deinen ersten Workspace — solo oder im Team. Importiere bestehende Tasks aus Notion, Trello oder Linear.</p>
+            </div>
+          </div>
+          <div class="docs-step">
+            <span class="docs-step-num">3</span>
+            <div>
+              <strong>Loslegen</strong>
+              <p>Füge Tasks hinzu, aktiviere den Focus Mode und lass die KI deinen Tag planen.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="lumaspace-features">
+          <h2 class="docs-h2">Features</h2>
+
+          <h3 class="docs-h3">Task Orchestration</h3>
+          <p>Tasks können in Projekten gruppiert, mit Abhängigkeiten verknüpft und automatisch priorisiert werden. Deadlines und Aufwandsschätzungen fließen in die KI-Planung ein.</p>
+
+          <h3 class="docs-h3">Focus Sessions</h3>
+          <p>Der Focus Mode startet eine Pomodoro-ähnliche Session, schaltet Ablenkungen aus und trackt produktive Zeit pro Task.</p>
+        </section>
+
+        <section class="docs-section" id="lumaspace-api">
+          <h2 class="docs-h2">API</h2>
+          <div class="docs-callout docs-callout--warn">
+            Die LumaSpace API befindet sich in Vorbereitung. Trag dich in den Discord ein, um als erster Zugang zu erhalten.
+          </div>
+        </section>
+
+        <div class="docs-divider"></div>
+
+        <!-- ═══════════════ FLOWWAVE ═══════════════ -->
+        <div class="docs-product-header docs-product-header--flow" id="flowwave-intro">
+          <span class="docs-product-icon">〜</span>
+          <div>
+            <h2 class="docs-h1" style="margin:0">FlowWave</h2>
+            <span class="docs-product-tag docs-product-tag--dev">In Entwicklung</span>
+          </div>
+        </div>
+
+        <section class="docs-section">
+          <p class="docs-lead">FlowWave ist ein Discord-Bot-Builder auf Basis von <strong>pycord v2</strong>. Er abstrahiert die Komplexität von Discord-Bots und ermöglicht schnelle Entwicklung mit wenig Boilerplate.</p>
+
+          <div class="docs-callout docs-callout--info">
+            FlowWave setzt <strong>Python 3.10+</strong> und <strong>pycord v2.x</strong> voraus.
+          </div>
+        </section>
+
+        <section class="docs-section" id="flowwave-install">
+          <h2 class="docs-h2">Installation</h2>
+
+          <h3 class="docs-h3">Voraussetzungen</h3>
+          <ul class="docs-list">
+            <li>Python 3.10 oder neuer</li>
+            <li>pip (Python Package Manager)</li>
+            <li>Ein Discord Developer Account + Bot Token</li>
+          </ul>
+
+          <h3 class="docs-h3">Via pip installieren</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">bash</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-comment"># FlowWave und pycord v2 installieren</span>
+pip install flowwave
+pip install py-cord==2.6.1</code></pre>
+          </div>
+
+          <h3 class="docs-h3">Aus dem Quellcode</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">bash</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code>git clone https://github.com/flux0-network/flowwave
+cd flowwave
+pip install -e .</code></pre>
+          </div>
+        </section>
+
+        <section class="docs-section" id="flowwave-quickstart">
+          <h2 class="docs-h2">Quick Start</h2>
+          <p>Ein minimaler FlowWave-Bot in wenigen Zeilen:</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">python</span>
+              <span class="code-filename">bot.py</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-kw">import</span> flowwave
+
+<span class="code-comment"># Bot initialisieren</span>
+bot = flowwave.Bot(
+    token=<span class="code-str">"DEIN_BOT_TOKEN"</span>,
+    prefix=<span class="code-str">"!"</span>,
+    description=<span class="code-str">"Mein erster FlowWave Bot"</span>
+)
+
+<span class="code-comment"># Slash Command registrieren</span>
+<span class="code-deco">@bot.slash_command</span>(name=<span class="code-str">"ping"</span>, description=<span class="code-str">"Antwortet mit Pong!"</span>)
+<span class="code-kw">async def</span> <span class="code-fn">ping</span>(ctx):
+    <span class="code-kw">await</span> ctx.respond(<span class="code-str">f"🏓 Pong! Latenz: {<span class="code-fn">round</span>(bot.latency * 1000)}ms"</span>)
+
+<span class="code-comment"># Bot starten</span>
+bot.run()</code></pre>
+          </div>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">bash</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code>python bot.py
+<span class="code-comment"># ✓ FlowWave v0.1.0 gestartet</span>
+<span class="code-comment"># ✓ Eingeloggt als MeinBot#1234</span>
+<span class="code-comment"># ✓ 1 Slash Command registriert</span></code></pre>
+          </div>
+        </section>
+
+        <section class="docs-section" id="flowwave-commands">
+          <h2 class="docs-h2">Slash Commands</h2>
+          <p>FlowWave macht es einfach, Discord Slash Commands mit pycord v2 zu bauen.</p>
+
+          <h3 class="docs-h3">Einfacher Command</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">python</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-deco">@bot.slash_command</span>(name=<span class="code-str">"hallo"</span>, description=<span class="code-str">"Begrüßt einen Nutzer"</span>)
+<span class="code-kw">async def</span> <span class="code-fn">hallo</span>(ctx, name: str):
+    <span class="code-kw">await</span> ctx.respond(<span class="code-str">f"Hallo, {name}! 👋"</span>)</code></pre>
+          </div>
+
+          <h3 class="docs-h3">Command Groups (Cogs)</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">python</span>
+              <span class="code-filename">cogs/moderation.py</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-kw">import</span> flowwave
+
+<span class="code-kw">class</span> <span class="code-fn">Moderation</span>(flowwave.Cog):
+    <span class="code-str">"""Moderations-Commands"""</span>
+
+    <span class="code-deco">@flowwave.slash_command</span>(description=<span class="code-str">"Einen Nutzer kicken"</span>)
+    <span class="code-deco">@flowwave.has_permissions</span>(kick_members=<span class="code-kw">True</span>)
+    <span class="code-kw">async def</span> <span class="code-fn">kick</span>(<span class="code-kw">self</span>, ctx, member: flowwave.Member, reason: str = <span class="code-str">"Kein Grund angegeben"</span>):
+        <span class="code-kw">await</span> member.kick(reason=reason)
+        <span class="code-kw">await</span> ctx.respond(<span class="code-str">f"✅ {member.mention} wurde gekickt. Grund: {reason}"</span>)
+
+<span class="code-kw">def</span> <span class="code-fn">setup</span>(bot):
+    bot.add_cog(Moderation(bot))</code></pre>
+          </div>
+
+          <h3 class="docs-h3">Cog laden</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">python</span>
+              <span class="code-filename">bot.py</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code>bot.load_extension(<span class="code-str">"cogs.moderation"</span>)
+bot.run()</code></pre>
+          </div>
+        </section>
+
+        <section class="docs-section" id="flowwave-events">
+          <h2 class="docs-h2">Events</h2>
+          <p>Mit <code class="inline-code">@bot.event</code> kannst du auf alle pycord v2-Events reagieren.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">python</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-deco">@bot.event</span>
+<span class="code-kw">async def</span> <span class="code-fn">on_ready</span>():
+    <span class="code-fn">print</span>(<span class="code-str">f"✓ Bot bereit: {bot.user}"</span>)
+
+<span class="code-deco">@bot.event</span>
+<span class="code-kw">async def</span> <span class="code-fn">on_member_join</span>(member):
+    channel = member.guild.system_channel
+    <span class="code-kw">if</span> channel:
+        <span class="code-kw">await</span> channel.send(<span class="code-str">f"Willkommen, {member.mention}! 🎉"</span>)
+
+<span class="code-deco">@bot.event</span>
+<span class="code-kw">async def</span> <span class="code-fn">on_message</span>(message):
+    <span class="code-kw">if</span> message.author == bot.user:
+        <span class="code-kw">return</span>
+    <span class="code-kw">await</span> bot.process_commands(message)</code></pre>
+          </div>
+        </section>
+
+        <section class="docs-section" id="flowwave-components">
+          <h2 class="docs-h2">UI Components</h2>
+          <p>FlowWave bietet fertige Wrapper für Discord UI-Komponenten (pycord v2 Views).</p>
+
+          <h3 class="docs-h3">Buttons</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">python</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-kw">import</span> flowwave
+
+<span class="code-kw">class</span> <span class="code-fn">ConfirmView</span>(flowwave.View):
+    <span class="code-deco">@flowwave.button</span>(label=<span class="code-str">"Bestätigen"</span>, style=flowwave.ButtonStyle.green)
+    <span class="code-kw">async def</span> <span class="code-fn">confirm</span>(<span class="code-kw">self</span>, button, interaction):
+        <span class="code-kw">await</span> interaction.response.send_message(<span class="code-str">"✅ Bestätigt!"</span>)
+        <span class="code-kw">self</span>.stop()
+
+    <span class="code-deco">@flowwave.button</span>(label=<span class="code-str">"Abbrechen"</span>, style=flowwave.ButtonStyle.red)
+    <span class="code-kw">async def</span> <span class="code-fn">cancel</span>(<span class="code-kw">self</span>, button, interaction):
+        <span class="code-kw">await</span> interaction.response.send_message(<span class="code-str">"❌ Abgebrochen."</span>)
+        <span class="code-kw">self</span>.stop()
+
+<span class="code-deco">@bot.slash_command</span>(description=<span class="code-str">"Aktion bestätigen"</span>)
+<span class="code-kw">async def</span> <span class="code-fn">confirm_action</span>(ctx):
+    <span class="code-kw">await</span> ctx.respond(<span class="code-str">"Bist du sicher?"</span>, view=ConfirmView())</code></pre>
+          </div>
+
+          <h3 class="docs-h3">Modals</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">python</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-kw">class</span> <span class="code-fn">FeedbackModal</span>(flowwave.Modal, title=<span class="code-str">"Feedback"</span>):
+    feedback = flowwave.InputText(
+        label=<span class="code-str">"Dein Feedback"</span>,
+        style=flowwave.InputTextStyle.long,
+        placeholder=<span class="code-str">"Was denkst du?"</span>
+    )
+
+    <span class="code-kw">async def</span> <span class="code-fn">callback</span>(<span class="code-kw">self</span>, interaction):
+        <span class="code-kw">await</span> interaction.response.send_message(
+            <span class="code-str">f"Danke für dein Feedback: {<span class="code-kw">self</span>.feedback.value}"</span>
+        )</code></pre>
+          </div>
+        </section>
+
+        <section class="docs-section" id="flowwave-examples">
+          <h2 class="docs-h2">Vollständiges Beispiel</h2>
+          <p>Ein kompletter FlowWave-Bot mit mehreren Cogs:</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">python</span>
+              <span class="code-filename">bot.py</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-kw">import</span> flowwave
+<span class="code-kw">from</span> flowwave.config <span class="code-kw">import</span> Config
+
+config = Config.from_env()  <span class="code-comment"># lädt BOT_TOKEN aus .env</span>
+
+bot = flowwave.Bot(
+    token=config.token,
+    intents=flowwave.Intents.all(),
+    activity=flowwave.Game(<span class="code-str">"Flux0 Community"</span>)
+)
+
+<span class="code-comment"># Alle Cogs aus dem /cogs Ordner laden</span>
+bot.load_extensions_from(<span class="code-str">"cogs"</span>)
+
+<span class="code-deco">@bot.event</span>
+<span class="code-kw">async def</span> <span class="code-fn">on_ready</span>():
+    <span class="code-fn">print</span>(<span class="code-str">f"✓ {bot.user} ist online"</span>)
+    <span class="code-fn">print</span>(<span class="code-str">f"  Guilds: {<span class="code-fn">len</span>(bot.guilds)}"</span>)
+    <span class="code-fn">print</span>(<span class="code-str">f"  Commands: {<span class="code-fn">len</span>(bot.pending_application_commands)}"</span>)
+
+bot.run()</code></pre>
+          </div>
+        </section>
+
+        <div class="docs-divider"></div>
+
+        <!-- ═══════════════ LYQDEX ═══════════════ -->
+        <div class="docs-product-header docs-product-header--lyq" id="lyqdex-intro">
+          <span class="docs-product-icon">⬡</span>
+          <div>
+            <h2 class="docs-h1" style="margin:0">LyqDex</h2>
+            <span class="docs-product-tag docs-product-tag--dev">In Entwicklung</span>
+          </div>
+        </div>
+
+        <section class="docs-section">
+          <p class="docs-lead">LyqDex ist ein dezentrales Exchange-Protokoll (DEX) mit Fokus auf effiziente Liquiditätspools, transparente Onchain-Transaktionen und minimale Gebühren.</p>
+
+          <div class="docs-callout docs-callout--warn">
+            LyqDex ist in aktiver Entwicklung. Die API kann sich noch ändern. Feedback und Beiträge im Discord sind willkommen.
+          </div>
+        </section>
+
+        <section class="docs-section" id="lyqdex-start">
+          <h2 class="docs-h2">Erste Schritte</h2>
+
+          <h3 class="docs-h3">SDK installieren</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">bash</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-comment"># npm</span>
+npm install @lyqdex/sdk
+
+<span class="code-comment"># yarn</span>
+yarn add @lyqdex/sdk</code></pre>
+          </div>
+
+          <h3 class="docs-h3">Verbindung aufbauen</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">typescript</span>
+              <span class="code-filename">index.ts</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-kw">import</span> { LyqDex } <span class="code-kw">from</span> <span class="code-str">"@lyqdex/sdk"</span>
+
+<span class="code-kw">const</span> dex = <span class="code-kw">new</span> <span class="code-fn">LyqDex</span>({
+  rpc: <span class="code-str">"https://rpc.lyqdex.io"</span>,
+  chainId: <span class="code-str">"lyq-mainnet-1"</span>,
+})
+
+<span class="code-kw">await</span> dex.<span class="code-fn">connect</span>(wallet)</code></pre>
+          </div>
+        </section>
+
+        <section class="docs-section" id="lyqdex-pools">
+          <h2 class="docs-h2">Liquidity Pools</h2>
+
+          <h3 class="docs-h3">Pool abfragen</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">typescript</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-kw">const</span> pool = <span class="code-kw">await</span> dex.pools.<span class="code-fn">get</span>(<span class="code-str">"LYQ/USDC"</span>)
+
+<span class="code-fn">console</span>.<span class="code-fn">log</span>(pool.tvl)         <span class="code-comment">// Total Value Locked</span>
+<span class="code-fn">console</span>.<span class="code-fn">log</span>(pool.apy)         <span class="code-comment">// Annual Percentage Yield</span>
+<span class="code-fn">console</span>.<span class="code-fn">log</span>(pool.fee)         <span class="code-comment">// Pool-Gebühr in %</span></code></pre>
+          </div>
+
+          <h3 class="docs-h3">Liquidität hinzufügen</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">typescript</span>
+              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+            </div>
+            <pre><code><span class="code-kw">const</span> tx = <span class="code-kw">await</span> dex.pools.<span class="code-fn">addLiquidity</span>({
+  pool: <span class="code-str">"LYQ/USDC"</span>,
+  amountA: <span class="code-str">"100"</span>,   <span class="code-comment">// LYQ</span>
+  amountB: <span class="code-str">"500"</span>,   <span class="code-comment">// USDC</span>
+  slippage: <span class="code-str">"0.5"</span>  <span class="code-comment">// 0.5%</span>
+})
+
+<span class="code-fn">console</span>.<span class="code-fn">log</span>(<span class="code-str">"TX Hash:"</span>, tx.hash)</code></pre>
+          </div>
+        </section>
+
+        <section class="docs-section" id="lyqdex-api">
+          <h2 class="docs-h2">API Reference</h2>
+
+          <div class="docs-api-table">
+            <div class="docs-api-row docs-api-row--header">
+              <span>Method</span><span>Beschreibung</span><span>Return</span>
+            </div>
+            <div class="docs-api-row">
+              <code class="inline-code">dex.pools.list()</code>
+              <span>Alle aktiven Pools</span>
+              <code class="inline-code">Pool[]</code>
+            </div>
+            <div class="docs-api-row">
+              <code class="inline-code">dex.pools.get(id)</code>
+              <span>Pool by ID abrufen</span>
+              <code class="inline-code">Pool</code>
+            </div>
+            <div class="docs-api-row">
+              <code class="inline-code">dex.swap(opts)</code>
+              <span>Token tauschen</span>
+              <code class="inline-code">TxResult</code>
+            </div>
+            <div class="docs-api-row">
+              <code class="inline-code">dex.pools.addLiquidity(opts)</code>
+              <span>Liquidität einbringen</span>
+              <code class="inline-code">TxResult</code>
+            </div>
+            <div class="docs-api-row">
+              <code class="inline-code">dex.pools.removeLiquidity(opts)</code>
+              <span>Liquidität abziehen</span>
+              <code class="inline-code">TxResult</code>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <div class="docs-footer">
+          <p>Fragen? Komm in unseren <a href="https://discord.gg/yqQutP6EKV" target="_blank" rel="noopener" class="docs-link">Discord Server</a>.</p>
+          <p class="docs-footer-copy">© 2026 Flux0 · flux0.dev · Powered by Flux Network</p>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function copyCode(btn) {
+      const code = btn.closest('.code-block').querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Kopiert!';
+        setTimeout(() => btn.textContent = 'Kopieren', 2000);
+      });
+    }
+
+    // Active sidebar link on scroll
+    const sections = document.querySelectorAll('[id]');
+    const navLinks = document.querySelectorAll('.docs-nav-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('docs-nav-link--active'));
+          const active = document.querySelector(`.docs-nav-link[href="#${e.target.id}"]`);
+          if (active) active.classList.add('docs-nav-link--active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
