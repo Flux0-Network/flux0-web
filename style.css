@@ -529,6 +529,11 @@ kbd {
 }
 .docs-quick-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
 .docs-quick-icon { font-size: 1.4rem; flex-shrink: 0; }
+.docs-quick-icon--logo {
+  width: 36px; height: 36px; font-size: 0;
+  border-radius: 8px; overflow: hidden; background: #000;
+  display: flex; align-items: center; justify-content: center;
+}
 .docs-quick-card strong { display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
 .docs-quick-card p { margin: 0; font-size: 0.78rem; color: var(--muted); }
 
@@ -537,9 +542,14 @@ kbd {
   padding: 28px 0 20px; border-top: 1px solid var(--border); margin-bottom: 8px;
 }
 .docs-product-icon { font-size: 2rem; }
+.docs-product-icon--logo {
+  width: 52px; height: 52px; font-size: 0;
+  border-radius: 14px; overflow: hidden; background: #000;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
 .docs-product-header--luma .docs-product-icon { color: #d97706; }
 .docs-product-header--flow .docs-product-icon { color: #2563eb; }
-.docs-product-header--lyq  .docs-product-icon { color: var(--accent); }
 .docs-product-tag {
   display: inline-block; font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.08em; text-transform: uppercase;

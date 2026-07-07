@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Docs — Flux0</title>
-  <meta name="description" content="Dokumentation für LumaSpace, FlowWave und LyqDex." />
+  <meta name="description" content="Dokumentation für LumaSpace und FlowWave." />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -68,14 +68,6 @@
           <a href="#flowwave-pycord" class="docs-nav-link">pycord v2 Engine</a>
         </div>
 
-        <div class="docs-nav-group">
-          <div class="docs-nav-product-badge docs-nav-product-badge--lyq">⬡ LyqDex</div>
-          <a href="#lyqdex-intro" class="docs-nav-link">Protokoll</a>
-          <a href="#lyqdex-start" class="docs-nav-link">Erste Schritte</a>
-          <a href="#lyqdex-pools" class="docs-nav-link">Liquidity Pools</a>
-          <a href="#lyqdex-api" class="docs-nav-link">API Reference</a>
-        </div>
-
       </div>
     </aside>
 
@@ -91,24 +83,17 @@
 
           <div class="docs-cards-row">
             <a href="#flowwave-builder" class="docs-quick-card">
-              <span class="docs-quick-icon">〜</span>
+              <span class="docs-quick-icon docs-quick-icon--logo"><img src="flowwave-icon.png" alt="FlowWave" class="product-logo-icon"/></span>
               <div>
                 <strong>FlowWave</strong>
                 <p>Visueller Bot Builder · Container</p>
               </div>
             </a>
             <a href="#lumaspace-start" class="docs-quick-card">
-              <span class="docs-quick-icon">✦</span>
+              <span class="docs-quick-icon docs-quick-icon--logo"><img src="lumaspace-icon.png" alt="LumaSpace" class="product-logo-icon"/></span>
               <div>
                 <strong>LumaSpace</strong>
                 <p>Produktivitätsplattform</p>
-              </div>
-            </a>
-            <a href="#lyqdex-intro" class="docs-quick-card">
-              <span class="docs-quick-icon">⬡</span>
-              <div>
-                <strong>LyqDex</strong>
-                <p>DEX-Protokoll</p>
               </div>
             </a>
           </div>
@@ -118,7 +103,7 @@
           <h2 class="docs-h2">Erste Schritte</h2>
           <p>Wähle ein Produkt aus dem Menü links oder klick direkt auf eine der Karten oben. Alle Produkte sind eigenständig — du kannst mit jedem beginnen, das dich interessiert.</p>
           <div class="docs-callout docs-callout--info">
-            <strong>Hinweis:</strong> LumaSpace ist bereits live. FlowWave und LyqDex befinden sich in aktiver Entwicklung — die Dokumentation wird laufend aktualisiert.
+            <strong>Hinweis:</strong> LumaSpace ist bereits live. FlowWave befindet sich in aktiver Entwicklung — die Dokumentation wird laufend aktualisiert.
           </div>
         </section>
 
@@ -126,7 +111,7 @@
 
         <!-- ═══════════════ LUMASPACE ═══════════════ -->
         <div class="docs-product-header docs-product-header--luma" id="lumaspace-intro">
-          <span class="docs-product-icon">✦</span>
+          <span class="docs-product-icon docs-product-icon--logo"><img src="lumaspace-icon.png" alt="LumaSpace" class="product-logo-icon"/></span>
           <div>
             <h2 class="docs-h1" style="margin:0">LumaSpace</h2>
             <span class="docs-product-tag docs-product-tag--live">Live</span>
@@ -203,7 +188,7 @@
 
         <!-- ═══════════════ FLOWWAVE ═══════════════ -->
         <div class="docs-product-header docs-product-header--flow" id="flowwave-intro">
-          <span class="docs-product-icon">〜</span>
+          <span class="docs-product-icon docs-product-icon--logo"><img src="flowwave-icon.png" alt="FlowWave" class="product-logo-icon"/></span>
           <div>
             <h2 class="docs-h1" style="margin:0">FlowWave</h2>
             <span class="docs-product-tag docs-product-tag--dev">In Entwicklung</span>
@@ -339,127 +324,6 @@
 
           <div class="docs-callout docs-callout--info">
             Du möchtest direkt mit pycord v2 arbeiten? Die offizielle Dokumentation findest du unter <a href="https://docs.pycord.dev" target="_blank" rel="noopener" class="docs-link">docs.pycord.dev</a>.
-          </div>
-        </section>
-
-        <div class="docs-divider"></div>
-
-        <!-- ═══════════════ LYQDEX ═══════════════ -->
-        <div class="docs-product-header docs-product-header--lyq" id="lyqdex-intro">
-          <span class="docs-product-icon">⬡</span>
-          <div>
-            <h2 class="docs-h1" style="margin:0">LyqDex</h2>
-            <span class="docs-product-tag docs-product-tag--dev">In Entwicklung</span>
-          </div>
-        </div>
-
-        <section class="docs-section">
-          <p class="docs-lead">LyqDex ist ein dezentrales Exchange-Protokoll (DEX) mit Fokus auf effiziente Liquiditätspools, transparente Onchain-Transaktionen und minimale Gebühren.</p>
-
-          <div class="docs-callout docs-callout--warn">
-            LyqDex ist in aktiver Entwicklung. Die API kann sich noch ändern. Feedback und Beiträge im Discord sind willkommen.
-          </div>
-        </section>
-
-        <section class="docs-section" id="lyqdex-start">
-          <h2 class="docs-h2">Erste Schritte</h2>
-
-          <h3 class="docs-h3">SDK installieren</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">bash</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-comment"># npm</span>
-npm install @lyqdex/sdk
-
-<span class="code-comment"># yarn</span>
-yarn add @lyqdex/sdk</code></pre>
-          </div>
-
-          <h3 class="docs-h3">Verbindung aufbauen</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">typescript</span>
-              <span class="code-filename">index.ts</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-kw">import</span> { LyqDex } <span class="code-kw">from</span> <span class="code-str">"@lyqdex/sdk"</span>
-
-<span class="code-kw">const</span> dex = <span class="code-kw">new</span> <span class="code-fn">LyqDex</span>({
-  rpc: <span class="code-str">"https://rpc.lyqdex.io"</span>,
-  chainId: <span class="code-str">"lyq-mainnet-1"</span>,
-})
-
-<span class="code-kw">await</span> dex.<span class="code-fn">connect</span>(wallet)</code></pre>
-          </div>
-        </section>
-
-        <section class="docs-section" id="lyqdex-pools">
-          <h2 class="docs-h2">Liquidity Pools</h2>
-
-          <h3 class="docs-h3">Pool abfragen</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">typescript</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-kw">const</span> pool = <span class="code-kw">await</span> dex.pools.<span class="code-fn">get</span>(<span class="code-str">"LYQ/USDC"</span>)
-
-<span class="code-fn">console</span>.<span class="code-fn">log</span>(pool.tvl)         <span class="code-comment">// Total Value Locked</span>
-<span class="code-fn">console</span>.<span class="code-fn">log</span>(pool.apy)         <span class="code-comment">// Annual Percentage Yield</span>
-<span class="code-fn">console</span>.<span class="code-fn">log</span>(pool.fee)         <span class="code-comment">// Pool-Gebühr in %</span></code></pre>
-          </div>
-
-          <h3 class="docs-h3">Liquidität hinzufügen</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">typescript</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-kw">const</span> tx = <span class="code-kw">await</span> dex.pools.<span class="code-fn">addLiquidity</span>({
-  pool: <span class="code-str">"LYQ/USDC"</span>,
-  amountA: <span class="code-str">"100"</span>,   <span class="code-comment">// LYQ</span>
-  amountB: <span class="code-str">"500"</span>,   <span class="code-comment">// USDC</span>
-  slippage: <span class="code-str">"0.5"</span>  <span class="code-comment">// 0.5%</span>
-})
-
-<span class="code-fn">console</span>.<span class="code-fn">log</span>(<span class="code-str">"TX Hash:"</span>, tx.hash)</code></pre>
-          </div>
-        </section>
-
-        <section class="docs-section" id="lyqdex-api">
-          <h2 class="docs-h2">API Reference</h2>
-
-          <div class="docs-api-table">
-            <div class="docs-api-row docs-api-row--header">
-              <span>Method</span><span>Beschreibung</span><span>Return</span>
-            </div>
-            <div class="docs-api-row">
-              <code class="inline-code">dex.pools.list()</code>
-              <span>Alle aktiven Pools</span>
-              <code class="inline-code">Pool[]</code>
-            </div>
-            <div class="docs-api-row">
-              <code class="inline-code">dex.pools.get(id)</code>
-              <span>Pool by ID abrufen</span>
-              <code class="inline-code">Pool</code>
-            </div>
-            <div class="docs-api-row">
-              <code class="inline-code">dex.swap(opts)</code>
-              <span>Token tauschen</span>
-              <code class="inline-code">TxResult</code>
-            </div>
-            <div class="docs-api-row">
-              <code class="inline-code">dex.pools.addLiquidity(opts)</code>
-              <span>Liquidität einbringen</span>
-              <code class="inline-code">TxResult</code>
-            </div>
-            <div class="docs-api-row">
-              <code class="inline-code">dex.pools.removeLiquidity(opts)</code>
-              <span>Liquidität abziehen</span>
-              <code class="inline-code">TxResult</code>
-            </div>
           </div>
         </section>
 
