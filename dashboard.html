@@ -19,8 +19,9 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="dashboard.html" class="nav-active">Dashboard</a></li>
-        <li class="nav-login"><a href="dashboard.html">Login</a></li>
+        <li class="nav-login" id="nav-login-li"><a href="dashboard.html">Login</a></li>
       </ul>
+      <a href="dashboard.html" class="nav-user-link" id="nav-user-link" style="display:none"></a>
       <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -189,6 +190,26 @@
       document.getElementById('view-dashboard').style.display = 'block';
 
       const name = data.global_name || data.username || '—';
+
+      // Navbar: hide login, show avatar
+      const navLoginLi = document.getElementById('nav-login-li');
+      const navUserLink = document.getElementById('nav-user-link');
+      if (navLoginLi) navLoginLi.style.display = 'none';
+      if (navUserLink) {
+        if (data.avatar) {
+          const img = document.createElement('img');
+          img.className = 'nav-user-avatar';
+          img.src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=64`;
+          img.alt = name;
+          navUserLink.appendChild(img);
+        } else {
+          const ph = document.createElement('div');
+          ph.className = 'nav-user-placeholder';
+          ph.textContent = name[0].toUpperCase();
+          navUserLink.appendChild(ph);
+        }
+        navUserLink.style.display = 'flex';
+      }
       document.getElementById('dash-username').textContent = name;
       document.getElementById('dash-discord-id').textContent = data.id || '';
 
