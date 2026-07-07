@@ -1,4 +1,4 @@
-const { createHmac } = require('node:crypto');
+const { createHmac } = require('crypto');
 
 module.exports = async (req, res) => {
   const { code, error } = req.query;
@@ -7,10 +7,18 @@ module.exports = async (req, res) => {
     return res.redirect('/dashboard.html?error=cancelled');
   }
 
-  const CLIENT_ID     = process.env.DISCORD_CLIENT_ID;
-  const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
-  const REDIRECT_URI  = process.env.DISCORD_REDIRECT_URI;
+  const CLIENT_ID      = process.env.DISCORD_CLIENT_ID;
+  const CLIENT_SECRET  = process.env.DISCORD_CLIENT_SECRET;
+  const REDIRECT_URI   = process.env.DISCORD_REDIRECT_URI;
   const SESSION_SECRET = process.env.SESSION_SECRET;
+
+  // Guard: all env vars must be set
+  if (!CLIENT_ID || !CLIENT_SECRET || !REDIRECT_URI || !SESSION_SECRET) {
+    const missing = ['DISCORD_CLIENT_ID','DISCORD_CLIENT_SECRET','DISCORD_REDIRECT_URI','SESSION_SECRET']
+      .filter(k => !process.env[k]).join(', ');
+    res.setHeader('Content-Type', 'text/plain');
+    return res.status(500).send(`Missing env vars: ${missing}`);
+  }
 
   try {
     // 1. Exchange code for access token
@@ -27,8 +35,12 @@ module.exports = async (req, res) => {
     });
 
     const tokenData = await tokenRes.json();
+
     if (!tokenData.access_token) {
-      return res.redirect('/dashboard.html?error=token');
+      res.setHeader('Content-Type', 'text/plain');
+      return res.status(500).send(
+        `Discord token error: ${JSON.stringify(tokenData)}\n\nRedirect URI used: ${REDIRECT_URI}`
+      );
     }
 
     // 2. Fetch Discord user profile
@@ -37,26 +49,31 @@ module.exports = async (req, res) => {
     });
     const user = await userRes.json();
 
-    // 3. Build a signed session token (simple HS256 JWT)
+    if (!user.id) {
+      res.setHeader('Content-Type', 'text/plain');
+      return res.status(500).send(`Discord user error: ${JSON.stringify(user)}`);
+    }
+
+    // 3. Build signed session token
     const header  = Buffer.from('{"alg":"HS256","typ":"JWT"}').toString('base64url');
     const payload = Buffer.from(JSON.stringify({
       id:          user.id,
       username:    user.username,
       global_name: user.global_name || user.username,
       avatar:      user.avatar,
-      exp:         Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 days
+      exp:         Date.now() + 7 * 24 * 60 * 60 * 1000,
     })).toString('base64url');
 
     const sig   = createHmac('sha256', SESSION_SECRET).update(`${header}.${payload}`).digest('base64url');
     const token = `${header}.${payload}.${sig}`;
 
-    const secure   = req.headers['x-forwarded-proto'] === 'https' ? '; Secure' : '';
-    const maxAge   = 7 * 24 * 3600;
-
-    res.setHeader('Set-Cookie', `flux0_session=${token}; HttpOnly${secure}; SameSite=Lax; Max-Age=${maxAge}; Path=/`);
+    res.setHeader('Set-Cookie',
+      `flux0_session=${token}; HttpOnly; Secure; SameSite=Lax; Max-Age=${7 * 24 * 3600}; Path=/`
+    );
     res.redirect('/dashboard.html');
+
   } catch (err) {
-    console.error('callback error:', err);
-    res.redirect('/dashboard.html?error=server');
+    res.setHeader('Content-Type', 'text/plain');
+    res.status(500).send(`Exception: ${err.message}\n${err.stack}`);
   }
 };

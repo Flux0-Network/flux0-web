@@ -1,4 +1,4 @@
-const { createHmac } = require('node:crypto');
+const { createHmac } = require('crypto');
 
 module.exports = (req, res) => {
   const SESSION_SECRET = process.env.SESSION_SECRET;
