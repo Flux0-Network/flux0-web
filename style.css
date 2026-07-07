@@ -656,6 +656,12 @@ kbd {
 .product-card:hover { background: var(--surface); }
 
 .product-card-left { display: flex; align-items: center; gap: 16px; min-width: 200px; }
+.product-logo-icon {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
 .product-icon {
   width: 48px; height: 48px; flex-shrink: 0;
   border-radius: 12px;
@@ -664,7 +670,9 @@ kbd {
   display: flex; align-items: center; justify-content: center;
   font-size: 1.2rem;
   color: var(--accent);
+  overflow: hidden;
 }
+.product-icon:has(.product-logo-icon) { background: #000; border-color: var(--border); }
 .product-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
 .product-status {
   display: inline-block;
@@ -869,10 +877,11 @@ kbd {
 .dash-fw-icon {
   width: 44px; height: 44px; flex-shrink: 0;
   border-radius: 12px;
-  background: rgba(59,130,246,0.08);
-  border: 1px solid rgba(59,130,246,0.18);
+  background: #000;
+  border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.3rem; color: #2563eb;
+  overflow: hidden;
 }
 .dash-fw-header-info strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
 .dash-fw-header-info span { font-size: 0.78rem; color: var(--muted); }
