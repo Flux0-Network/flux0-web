@@ -39,6 +39,16 @@
   <section class="section">
     <div class="container">
 
+      <!-- Loading state -->
+      <div id="view-loading" style="text-align:center;padding:64px 0;color:var(--dim);font-size:0.9rem">
+        Wird geladen…
+      </div>
+
+      <!-- Error banner -->
+      <div id="view-error" style="display:none;margin-bottom:20px">
+        <div class="dash-notice dash-notice--warn" id="error-msg"></div>
+      </div>
+
       <!-- Login state -->
       <div id="view-login" style="display:none">
         <div class="dash-login-card">
@@ -139,7 +149,25 @@
       return ph;
     }
 
+    const ERRORS = {
+      cancelled: 'Login abgebrochen.',
+      token:     'Discord hat keinen gültigen Token zurückgegeben. Prüfe DISCORD_CLIENT_SECRET in Vercel.',
+      server:    'Interner Fehler beim Login. Prüfe die Vercel Function Logs.',
+    };
+
+    function showError(msg) {
+      const el = document.getElementById('view-error');
+      document.getElementById('error-msg').textContent = msg;
+      el.style.display = 'block';
+    }
+
+    function showLogin() {
+      document.getElementById('view-loading').style.display = 'none';
+      document.getElementById('view-login').style.display = 'block';
+    }
+
     function showDashboard(data) {
+      document.getElementById('view-loading').style.display = 'none';
       document.getElementById('view-dashboard').style.display = 'block';
 
       const name = data.global_name || data.username || '—';
@@ -155,10 +183,20 @@
         .appendChild(buildAvatar(data.id, data.avatar, name, 64, 'dash-fw-avatar'));
     }
 
+    // Show error from callback redirect (e.g. ?error=token)
+    const urlError = new URLSearchParams(location.search).get('error');
+    if (urlError && ERRORS[urlError]) showError(ERRORS[urlError]);
+
     fetch('/api/me', { credentials: 'include' })
-      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(r => {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      })
       .then(data => showDashboard(data))
-      .catch(() => { document.getElementById('view-login').style.display = 'block'; });
+      .catch(err => {
+        console.warn('[flux0] /api/me failed:', err.message);
+        showLogin();
+      });
   </script>
 </body>
 </html>
