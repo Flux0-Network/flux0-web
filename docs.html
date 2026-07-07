@@ -55,12 +55,10 @@
         <div class="docs-nav-group">
           <div class="docs-nav-product-badge docs-nav-product-badge--flow">〜 FlowWave</div>
           <a href="#flowwave-intro" class="docs-nav-link">Übersicht</a>
-          <a href="#flowwave-install" class="docs-nav-link">Installation</a>
-          <a href="#flowwave-quickstart" class="docs-nav-link">Quick Start</a>
-          <a href="#flowwave-commands" class="docs-nav-link">Slash Commands</a>
-          <a href="#flowwave-events" class="docs-nav-link">Events</a>
-          <a href="#flowwave-components" class="docs-nav-link">Components</a>
-          <a href="#flowwave-examples" class="docs-nav-link">Beispiele</a>
+          <a href="#flowwave-builder" class="docs-nav-link">Web Builder</a>
+          <a href="#flowwave-commands-ui" class="docs-nav-link">Commands & Events</a>
+          <a href="#flowwave-container" class="docs-nav-link">Container Deployment</a>
+          <a href="#flowwave-pycord" class="docs-nav-link">pycord v2 Engine</a>
         </div>
 
         <div class="docs-nav-group">
@@ -85,11 +83,11 @@
           <p class="docs-lead">Willkommen in der offiziellen Dokumentation des Flux Network. Hier findest du alles zu unseren Produkten — von der ersten Installation bis zur API-Referenz.</p>
 
           <div class="docs-cards-row">
-            <a href="#flowwave-install" class="docs-quick-card">
+            <a href="#flowwave-builder" class="docs-quick-card">
               <span class="docs-quick-icon">〜</span>
               <div>
                 <strong>FlowWave</strong>
-                <p>pycord v2 Bot Builder</p>
+                <p>Visueller Bot Builder · Container</p>
               </div>
             </a>
             <a href="#lumaspace-start" class="docs-quick-card">
@@ -206,241 +204,134 @@
         </div>
 
         <section class="docs-section">
-          <p class="docs-lead">FlowWave ist ein Discord-Bot-Builder auf Basis von <strong>pycord v2</strong>. Er abstrahiert die Komplexität von Discord-Bots und ermöglicht schnelle Entwicklung mit wenig Boilerplate.</p>
+          <p class="docs-lead">FlowWave ist ein <strong>visueller Discord-Bot-Builder im Browser</strong>. Du erstellst deinen Bot komplett per Drag-and-drop — ohne eine einzige Zeile Code zu schreiben. Im Hintergrund läuft alles auf <strong>pycord v2</strong> in einem isolierten Container.</p>
+
+          <div class="docs-feature-list">
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">🖥️</span>
+              <div><strong>Web Builder</strong> — Bot-Logik visuell im Browser konfigurieren, kein Python-Wissen nötig</div>
+            </div>
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">📦</span>
+              <div><strong>Container-Deployment</strong> — Jeder Bot läuft in einem eigenen, isolierten Container</div>
+            </div>
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">⚡</span>
+              <div><strong>pycord v2 Engine</strong> — Professionelle Discord-API-Unterstützung unter der Haube</div>
+            </div>
+          </div>
 
           <div class="docs-callout docs-callout--info">
-            FlowWave setzt <strong>Python 3.10+</strong> und <strong>pycord v2.x</strong> voraus.
+            FlowWave befindet sich in aktiver Entwicklung. Die Web-Oberfläche und Container-Infrastruktur werden gerade aufgebaut. Trag dich im Discord ein, um Early Access zu erhalten.
           </div>
         </section>
 
-        <section class="docs-section" id="flowwave-install">
-          <h2 class="docs-h2">Installation</h2>
+        <section class="docs-section" id="flowwave-builder">
+          <h2 class="docs-h2">Web Builder</h2>
+          <p>Der FlowWave Web Builder ist die zentrale Oberfläche, in der du deinen Discord-Bot zusammenstellst — vollständig im Browser, ohne lokale Installation.</p>
 
-          <h3 class="docs-h3">Voraussetzungen</h3>
+          <div class="docs-step">
+            <span class="docs-step-num">1</span>
+            <div>
+              <strong>Anmelden &amp; Bot-Projekt erstellen</strong>
+              <p>Öffne den FlowWave Web Builder und lege ein neues Bot-Projekt an. Gib deinen Discord Bot Token ein — er wird verschlüsselt gespeichert und nur im Container verwendet.</p>
+            </div>
+          </div>
+          <div class="docs-step">
+            <span class="docs-step-num">2</span>
+            <div>
+              <strong>Commands &amp; Events visuell konfigurieren</strong>
+              <p>Wähle im Builder aus vorgefertigten Slash-Command- und Event-Blöcken. Konfiguriere Namen, Beschreibungen, Optionen und Antworten direkt im UI — kein Code nötig.</p>
+            </div>
+          </div>
+          <div class="docs-step">
+            <span class="docs-step-num">3</span>
+            <div>
+              <strong>Container deployen</strong>
+              <p>Klick auf "Deploy" — FlowWave baut automatisch einen Container mit deiner Konfiguration und startet ihn. Dein Bot ist innerhalb von Sekunden live auf Discord.</p>
+            </div>
+          </div>
+          <div class="docs-step">
+            <span class="docs-step-num">4</span>
+            <div>
+              <strong>Live-Monitoring</strong>
+              <p>Im Dashboard siehst du den Container-Status, Logs und Uptime deines Bots in Echtzeit. Änderungen im Builder werden als neuer Container-Build ausgerollt.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="flowwave-commands-ui">
+          <h2 class="docs-h2">Commands &amp; Events konfigurieren</h2>
+          <p>Alle Bot-Funktionen werden über den visuellen Builder eingestellt — du wählst Blöcke aus und füllst Felder aus.</p>
+
+          <h3 class="docs-h3">Slash Commands</h3>
+          <p>Füge einen Slash-Command-Block hinzu und konfiguriere:</p>
           <ul class="docs-list">
-            <li>Python 3.10 oder neuer</li>
-            <li>pip (Python Package Manager)</li>
-            <li>Ein Discord Developer Account + Bot Token</li>
+            <li><strong>Name</strong> — der Command-Name (z.B. <code class="inline-code">ping</code>, <code class="inline-code">info</code>)</li>
+            <li><strong>Beschreibung</strong> — wird Nutzern in Discord angezeigt</li>
+            <li><strong>Optionen</strong> — optionale oder Pflicht-Parameter mit Typ-Auswahl (Text, Zahl, User, Channel …)</li>
+            <li><strong>Antwort</strong> — statischer Text, Embed-Template oder dynamische Logik-Blöcke</li>
           </ul>
 
-          <h3 class="docs-h3">Via pip installieren</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">bash</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
+          <h3 class="docs-h3">Events</h3>
+          <p>Reagiere auf Discord-Events ohne Code — wähle das Event und definiere die Aktion:</p>
+          <ul class="docs-list">
+            <li><strong>on_member_join</strong> — Willkommensnachricht automatisch senden</li>
+            <li><strong>on_message</strong> — Keyword-Filter oder Auto-Antworten konfigurieren</li>
+            <li><strong>on_reaction_add</strong> — Reaction-Roles visuell zuweisen</li>
+            <li><strong>on_ready</strong> — Status und Aktivität des Bots beim Start setzen</li>
+          </ul>
+
+          <h3 class="docs-h3">UI-Komponenten</h3>
+          <p>Buttons, Dropdowns und Modals lassen sich per Block-System an Commands anhängen — inklusive Berechtigungsregeln und Antwortlogik, alles im Builder konfigurierbar.</p>
+        </section>
+
+        <section class="docs-section" id="flowwave-container">
+          <h2 class="docs-h2">Container Deployment</h2>
+          <p>Jeder FlowWave-Bot läuft in einem eigenen, isolierten Container — vollständig gemanaged von FlowWave.</p>
+
+          <h3 class="docs-h3">Wie es funktioniert</h3>
+          <div class="docs-feature-list">
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">1</span>
+              <div><strong>Build</strong> — FlowWave generiert aus deiner Builder-Konfiguration automatisch ein pycord v2 Projekt und verpackt es in ein Container-Image.</div>
             </div>
-            <pre><code><span class="code-comment"># FlowWave und pycord v2 installieren</span>
-pip install flowwave
-pip install py-cord==2.6.1</code></pre>
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">2</span>
+              <div><strong>Deploy</strong> — Das Image wird in einer isolierten Laufzeitumgebung gestartet. Dein Bot-Token ist nur innerhalb des Containers sichtbar.</div>
+            </div>
+            <div class="docs-feature-item">
+              <span class="docs-feature-icon">3</span>
+              <div><strong>Betrieb</strong> — FlowWave überwacht den Container, startet ihn bei Absturz automatisch neu und hält Logs bereit.</div>
+            </div>
           </div>
 
-          <h3 class="docs-h3">Aus dem Quellcode</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">bash</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code>git clone https://github.com/flux0-network/flowwave
-cd flowwave
-pip install -e .</code></pre>
+          <h3 class="docs-h3">Updates ausrollen</h3>
+          <p>Änderungen im Web Builder lösen automatisch einen neuen Build aus. Der laufende Container wird graceful ersetzt — dein Bot ist nur für wenige Sekunden offline.</p>
+
+          <div class="docs-callout docs-callout--warn">
+            Eigene Container-Images oder direktes SSH-Zugriff sind in der aktuellen Alpha nicht vorgesehen. Das Feature ist für spätere Versionen geplant.
           </div>
         </section>
 
-        <section class="docs-section" id="flowwave-quickstart">
-          <h2 class="docs-h2">Quick Start</h2>
-          <p>Ein minimaler FlowWave-Bot in wenigen Zeilen:</p>
+        <section class="docs-section" id="flowwave-pycord">
+          <h2 class="docs-h2">pycord v2 Engine</h2>
+          <p>Unter der Haube verwendet FlowWave <strong>pycord v2</strong> — eine der leistungsfähigsten Python-Bibliotheken für die Discord-API mit vollständiger Slash-Command- und UI-Unterstützung.</p>
 
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">python</span>
-              <span class="code-filename">bot.py</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-kw">import</span> flowwave
+          <h3 class="docs-h3">Was pycord v2 ermöglicht</h3>
+          <ul class="docs-list">
+            <li>Vollständige Slash-Command- und Application-Command-Unterstützung</li>
+            <li>Discord UI-Komponenten: Buttons, Select Menus, Modals</li>
+            <li>Autocomplete für Command-Optionen</li>
+            <li>Cogs für modulare Bot-Strukturen</li>
+            <li>Alle Gateway Events der Discord-API</li>
+          </ul>
 
-<span class="code-comment"># Bot initialisieren</span>
-bot = flowwave.Bot(
-    token=<span class="code-str">"DEIN_BOT_TOKEN"</span>,
-    prefix=<span class="code-str">"!"</span>,
-    description=<span class="code-str">"Mein erster FlowWave Bot"</span>
-)
+          <h3 class="docs-h3">Für Entwickler</h3>
+          <p>Fortgeschrittene Nutzer können in späteren Versionen von FlowWave eigene pycord v2 Cogs als Module hochladen und in den Builder integrieren — für Funktionen, die über den visuellen Builder hinausgehen.</p>
 
-<span class="code-comment"># Slash Command registrieren</span>
-<span class="code-deco">@bot.slash_command</span>(name=<span class="code-str">"ping"</span>, description=<span class="code-str">"Antwortet mit Pong!"</span>)
-<span class="code-kw">async def</span> <span class="code-fn">ping</span>(ctx):
-    <span class="code-kw">await</span> ctx.respond(<span class="code-str">f"🏓 Pong! Latenz: {<span class="code-fn">round</span>(bot.latency * 1000)}ms"</span>)
-
-<span class="code-comment"># Bot starten</span>
-bot.run()</code></pre>
-          </div>
-
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">bash</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code>python bot.py
-<span class="code-comment"># ✓ FlowWave v0.1.0 gestartet</span>
-<span class="code-comment"># ✓ Eingeloggt als MeinBot#1234</span>
-<span class="code-comment"># ✓ 1 Slash Command registriert</span></code></pre>
-          </div>
-        </section>
-
-        <section class="docs-section" id="flowwave-commands">
-          <h2 class="docs-h2">Slash Commands</h2>
-          <p>FlowWave macht es einfach, Discord Slash Commands mit pycord v2 zu bauen.</p>
-
-          <h3 class="docs-h3">Einfacher Command</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">python</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-deco">@bot.slash_command</span>(name=<span class="code-str">"hallo"</span>, description=<span class="code-str">"Begrüßt einen Nutzer"</span>)
-<span class="code-kw">async def</span> <span class="code-fn">hallo</span>(ctx, name: str):
-    <span class="code-kw">await</span> ctx.respond(<span class="code-str">f"Hallo, {name}! 👋"</span>)</code></pre>
-          </div>
-
-          <h3 class="docs-h3">Command Groups (Cogs)</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">python</span>
-              <span class="code-filename">cogs/moderation.py</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-kw">import</span> flowwave
-
-<span class="code-kw">class</span> <span class="code-fn">Moderation</span>(flowwave.Cog):
-    <span class="code-str">"""Moderations-Commands"""</span>
-
-    <span class="code-deco">@flowwave.slash_command</span>(description=<span class="code-str">"Einen Nutzer kicken"</span>)
-    <span class="code-deco">@flowwave.has_permissions</span>(kick_members=<span class="code-kw">True</span>)
-    <span class="code-kw">async def</span> <span class="code-fn">kick</span>(<span class="code-kw">self</span>, ctx, member: flowwave.Member, reason: str = <span class="code-str">"Kein Grund angegeben"</span>):
-        <span class="code-kw">await</span> member.kick(reason=reason)
-        <span class="code-kw">await</span> ctx.respond(<span class="code-str">f"✅ {member.mention} wurde gekickt. Grund: {reason}"</span>)
-
-<span class="code-kw">def</span> <span class="code-fn">setup</span>(bot):
-    bot.add_cog(Moderation(bot))</code></pre>
-          </div>
-
-          <h3 class="docs-h3">Cog laden</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">python</span>
-              <span class="code-filename">bot.py</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code>bot.load_extension(<span class="code-str">"cogs.moderation"</span>)
-bot.run()</code></pre>
-          </div>
-        </section>
-
-        <section class="docs-section" id="flowwave-events">
-          <h2 class="docs-h2">Events</h2>
-          <p>Mit <code class="inline-code">@bot.event</code> kannst du auf alle pycord v2-Events reagieren.</p>
-
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">python</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-deco">@bot.event</span>
-<span class="code-kw">async def</span> <span class="code-fn">on_ready</span>():
-    <span class="code-fn">print</span>(<span class="code-str">f"✓ Bot bereit: {bot.user}"</span>)
-
-<span class="code-deco">@bot.event</span>
-<span class="code-kw">async def</span> <span class="code-fn">on_member_join</span>(member):
-    channel = member.guild.system_channel
-    <span class="code-kw">if</span> channel:
-        <span class="code-kw">await</span> channel.send(<span class="code-str">f"Willkommen, {member.mention}! 🎉"</span>)
-
-<span class="code-deco">@bot.event</span>
-<span class="code-kw">async def</span> <span class="code-fn">on_message</span>(message):
-    <span class="code-kw">if</span> message.author == bot.user:
-        <span class="code-kw">return</span>
-    <span class="code-kw">await</span> bot.process_commands(message)</code></pre>
-          </div>
-        </section>
-
-        <section class="docs-section" id="flowwave-components">
-          <h2 class="docs-h2">UI Components</h2>
-          <p>FlowWave bietet fertige Wrapper für Discord UI-Komponenten (pycord v2 Views).</p>
-
-          <h3 class="docs-h3">Buttons</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">python</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-kw">import</span> flowwave
-
-<span class="code-kw">class</span> <span class="code-fn">ConfirmView</span>(flowwave.View):
-    <span class="code-deco">@flowwave.button</span>(label=<span class="code-str">"Bestätigen"</span>, style=flowwave.ButtonStyle.green)
-    <span class="code-kw">async def</span> <span class="code-fn">confirm</span>(<span class="code-kw">self</span>, button, interaction):
-        <span class="code-kw">await</span> interaction.response.send_message(<span class="code-str">"✅ Bestätigt!"</span>)
-        <span class="code-kw">self</span>.stop()
-
-    <span class="code-deco">@flowwave.button</span>(label=<span class="code-str">"Abbrechen"</span>, style=flowwave.ButtonStyle.red)
-    <span class="code-kw">async def</span> <span class="code-fn">cancel</span>(<span class="code-kw">self</span>, button, interaction):
-        <span class="code-kw">await</span> interaction.response.send_message(<span class="code-str">"❌ Abgebrochen."</span>)
-        <span class="code-kw">self</span>.stop()
-
-<span class="code-deco">@bot.slash_command</span>(description=<span class="code-str">"Aktion bestätigen"</span>)
-<span class="code-kw">async def</span> <span class="code-fn">confirm_action</span>(ctx):
-    <span class="code-kw">await</span> ctx.respond(<span class="code-str">"Bist du sicher?"</span>, view=ConfirmView())</code></pre>
-          </div>
-
-          <h3 class="docs-h3">Modals</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">python</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-kw">class</span> <span class="code-fn">FeedbackModal</span>(flowwave.Modal, title=<span class="code-str">"Feedback"</span>):
-    feedback = flowwave.InputText(
-        label=<span class="code-str">"Dein Feedback"</span>,
-        style=flowwave.InputTextStyle.long,
-        placeholder=<span class="code-str">"Was denkst du?"</span>
-    )
-
-    <span class="code-kw">async def</span> <span class="code-fn">callback</span>(<span class="code-kw">self</span>, interaction):
-        <span class="code-kw">await</span> interaction.response.send_message(
-            <span class="code-str">f"Danke für dein Feedback: {<span class="code-kw">self</span>.feedback.value}"</span>
-        )</code></pre>
-          </div>
-        </section>
-
-        <section class="docs-section" id="flowwave-examples">
-          <h2 class="docs-h2">Vollständiges Beispiel</h2>
-          <p>Ein kompletter FlowWave-Bot mit mehreren Cogs:</p>
-
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">python</span>
-              <span class="code-filename">bot.py</span>
-              <button class="code-copy" onclick="copyCode(this)">Kopieren</button>
-            </div>
-            <pre><code><span class="code-kw">import</span> flowwave
-<span class="code-kw">from</span> flowwave.config <span class="code-kw">import</span> Config
-
-config = Config.from_env()  <span class="code-comment"># lädt BOT_TOKEN aus .env</span>
-
-bot = flowwave.Bot(
-    token=config.token,
-    intents=flowwave.Intents.all(),
-    activity=flowwave.Game(<span class="code-str">"Flux0 Community"</span>)
-)
-
-<span class="code-comment"># Alle Cogs aus dem /cogs Ordner laden</span>
-bot.load_extensions_from(<span class="code-str">"cogs"</span>)
-
-<span class="code-deco">@bot.event</span>
-<span class="code-kw">async def</span> <span class="code-fn">on_ready</span>():
-    <span class="code-fn">print</span>(<span class="code-str">f"✓ {bot.user} ist online"</span>)
-    <span class="code-fn">print</span>(<span class="code-str">f"  Guilds: {<span class="code-fn">len</span>(bot.guilds)}"</span>)
-    <span class="code-fn">print</span>(<span class="code-str">f"  Commands: {<span class="code-fn">len</span>(bot.pending_application_commands)}"</span>)
-
-bot.run()</code></pre>
+          <div class="docs-callout docs-callout--info">
+            Du möchtest direkt mit pycord v2 arbeiten? Die offizielle Dokumentation findest du unter <a href="https://docs.pycord.dev" target="_blank" rel="noopener" class="docs-link">docs.pycord.dev</a>.
           </div>
         </section>
 
