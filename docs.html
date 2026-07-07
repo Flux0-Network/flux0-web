@@ -29,14 +29,21 @@
         <a href="index.html" class="docs-header-link">← flux0.dev</a>
         <a href="https://discord.gg/yqQutP6EKV" class="btn-primary" target="_blank" rel="noopener" style="font-size:0.8rem;padding:6px 14px">Discord</a>
       </nav>
+      <button class="docs-mobile-toggle" id="docsMobileToggle" aria-label="Navigation öffnen">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="15" y2="18"/></svg>
+        <span>Sections</span>
+      </button>
     </div>
   </header>
+
+  <div class="docs-overlay" id="docsOverlay"></div>
 
   <div class="docs-layout">
 
     <!-- SIDEBAR -->
     <aside class="docs-sidebar">
       <div class="docs-sidebar-inner">
+        <button class="docs-sidebar-close" id="docsSidebarClose" aria-label="Navigation schließen">✕ Schließen</button>
 
         <div class="docs-nav-group">
           <span class="docs-nav-group-label">Übersicht</span>
