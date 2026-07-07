@@ -834,7 +834,23 @@ kbd {
 .dash-notice--info { background: var(--accent-lt); border: 1px solid #ddd6fe; color: var(--accent); }
 .dash-notice code { font-family: 'JetBrains Mono', monospace; background: rgba(255,255,255,0.6); padding: 2px 8px; border-radius: 4px; font-size: 0.95em; }
 
-/* ── FLOWWAVE DASHBOARD CARD ── */
+/* ── CONNECTIONS SECTION ── */
+.dash-connections { margin-top: 32px; }
+.dash-section-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 16px;
+}
+.dash-conn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── PRODUCT CONNECTION CARD ── */
 .dash-fw-card {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -1122,6 +1138,7 @@ kbd {
   .dash-stats { grid-template-columns: 1fr; }
   .dash-profile { flex-direction: column; }
   .dash-logout { top: 16px; right: 16px; }
+  .dash-conn-grid { grid-template-columns: 1fr; }
   .dash-fw-fields { grid-template-columns: 1fr 1fr; }
   .dash-fw-field:nth-child(2) { border-right: none; }
   .dash-fw-field:nth-child(3) { border-top: 1px solid var(--border); grid-column: 1 / -1; border-right: none; }
