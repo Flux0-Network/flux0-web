@@ -18,7 +18,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="news.html">Neuigkeiten</a></li>
-        <li><a href="errors/102.html" class="nav-active">Dashboard</a></li>
+        <li><a href="dashboard.html" class="nav-active">Dashboard</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
@@ -79,6 +79,65 @@
             <div class="stat-value stat-value--mono" id="stat-created-at"></div>
           </div>
         </div>
+
+        <!-- FlowWave -->
+        <div class="dash-fw-card">
+          <div class="dash-fw-header">
+            <div class="dash-fw-icon">〜</div>
+            <div class="dash-fw-header-info">
+              <strong>FlowWave</strong>
+              <span>Discord Bot Builder · pycord v2 · Container</span>
+            </div>
+            <span class="product-status product-status--dev" style="margin-left:auto;flex-shrink:0">Beta</span>
+          </div>
+
+          <!-- connected state -->
+          <div id="fw-view-connected" style="display:none">
+            <div class="dash-fw-profile">
+              <div id="fw-avatar-wrap"></div>
+              <div class="dash-fw-profile-info">
+                <div class="dash-fw-name" id="fw-name"></div>
+                <div class="dash-fw-tag" id="fw-tag"></div>
+              </div>
+              <div class="dash-fw-badge dash-fw-badge--connected">
+                <span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block"></span>
+                Verbunden
+              </div>
+            </div>
+            <div class="dash-fw-fields">
+              <div class="dash-fw-field">
+                <div class="dash-fw-field-label">Bot-Projekte</div>
+                <div class="dash-fw-field-value">0</div>
+              </div>
+              <div class="dash-fw-field">
+                <div class="dash-fw-field-label">Container aktiv</div>
+                <div class="dash-fw-field-value">0</div>
+              </div>
+              <div class="dash-fw-field">
+                <div class="dash-fw-field-label">Beta-Zugang</div>
+                <div class="dash-fw-field-value" style="color:#16a34a">✓ Vorgemerkt</div>
+              </div>
+            </div>
+            <div class="dash-fw-callout">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+              FlowWave befindet sich in Entwicklung. Dein Account ist für Early Access vorgemerkt — du wirst benachrichtigt, sobald der Web Builder live geht.
+            </div>
+          </div>
+
+          <!-- not connected state -->
+          <div id="fw-view-unconnected" style="display:none">
+            <div class="dash-fw-empty">
+              <div class="dash-fw-empty-icon">〜</div>
+              <strong>Noch kein FlowWave-Account</strong>
+              <p>Registriere dich mit <code>/flowwave register</code> im Flux0 Discord-Server, um deinen Bot Builder Account zu aktivieren.</p>
+              <a href="https://discord.gg/yqQutP6EKV" class="btn-primary" target="_blank" rel="noopener" style="margin-top:4px">
+                <svg width="16" height="16" viewBox="0 0 71 55" fill="currentColor"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.5.7a.2.2 0 0 0-.2.1 40.7 40.7 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A37.7 37.7 0 0 0 25.5.8a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.7 4.9a.2.2 0 0 0-.1.1C1.6 18.1-.9 31 .3 43.7a.2.2 0 0 0 .1.1 58.8 58.8 0 0 0 17.7 9 .2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4l1.1-.8a.2.2 0 0 1 .2 0c11.6 5.3 24.1 5.3 35.5 0a.2.2 0 0 1 .2 0l1.1.8a.2.2 0 0 1 0 .4 36 36 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47.1 47.1 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.6 58.6 0 0 0 17.8-9 .2.2 0 0 0 .1-.1c1.5-15.2-2.5-28-10.6-39.7a.2.2 0 0 0-.1-.1ZM23.7 36.1c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Zm23.7 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Z"/></svg>
+                Discord öffnen
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -104,6 +163,36 @@
       return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
     }
 
+    function buildAvatar(discordId, avatarHash, username, size, className) {
+      if (avatarHash) {
+        const img = document.createElement('img');
+        img.className = className;
+        img.src = `https://cdn.discordapp.com/avatars/${discordId}/${avatarHash}.png?size=${size}`;
+        img.alt = username;
+        return img;
+      }
+      const ph = document.createElement('div');
+      ph.className = className + '-placeholder';
+      ph.textContent = (username || '?')[0].toUpperCase();
+      return ph;
+    }
+
+    function showFlowWave(data) {
+      const account = data.account;
+      const hasFlowwave = !!(account && account.account_id);
+
+      if (hasFlowwave) {
+        document.getElementById('fw-view-connected').style.display = 'block';
+        document.getElementById('fw-name').textContent = data.username || '—';
+        document.getElementById('fw-tag').textContent = `ID: ${data.discord_id || '—'}`;
+
+        const fwAvatar = document.getElementById('fw-avatar-wrap');
+        fwAvatar.appendChild(buildAvatar(data.discord_id, data.avatar, data.username, 64, 'dash-fw-avatar'));
+      } else {
+        document.getElementById('fw-view-unconnected').style.display = 'block';
+      }
+    }
+
     function showDashboard(data) {
       document.getElementById('view-dashboard').style.display = 'block';
 
@@ -111,18 +200,7 @@
       document.getElementById('dash-discord-id').textContent = data.discord_id;
 
       const avatarWrap = document.getElementById('dash-avatar-wrap');
-      if (data.avatar) {
-        const img = document.createElement('img');
-        img.className = 'dash-avatar';
-        img.src = `https://cdn.discordapp.com/avatars/${data.discord_id}/${data.avatar}.png?size=128`;
-        img.alt = data.username;
-        avatarWrap.appendChild(img);
-      } else {
-        const ph = document.createElement('div');
-        ph.className = 'dash-avatar-placeholder';
-        ph.textContent = (data.username || '?')[0].toUpperCase();
-        avatarWrap.appendChild(ph);
-      }
+      avatarWrap.appendChild(buildAvatar(data.discord_id, data.avatar, data.username, 128, 'dash-avatar'));
 
       const account = data.account;
       const noticeEl = document.getElementById('dash-notice');
@@ -132,18 +210,18 @@
         document.getElementById('stat-account-id').textContent = 'Nicht verknüpft';
         document.getElementById('stat-created-at').textContent = '—';
         noticeEl.innerHTML = '<div class="dash-notice dash-notice--info">Kein Konto gefunden — registriere dich mit <code>/register</code> im Flux0-Discord-Server.</div>';
-        return;
-      }
-
-      if (account.verified) {
-        document.getElementById('stat-verified').innerHTML = '<span class="stat-value--green">✓</span>';
       } else {
-        document.getElementById('stat-verified').innerHTML = '<span class="stat-value--red">✗</span>';
-        noticeEl.innerHTML = `<div class="dash-notice dash-notice--warn">Noch nicht verifiziert — Dein Code: <code>${account.code || '—'}</code> — Nutze <code>/verify</code> im Discord-Server.</div>`;
+        if (account.verified) {
+          document.getElementById('stat-verified').innerHTML = '<span class="stat-value--green">✓</span>';
+        } else {
+          document.getElementById('stat-verified').innerHTML = '<span class="stat-value--red">✗</span>';
+          noticeEl.innerHTML = `<div class="dash-notice dash-notice--warn">Noch nicht verifiziert — Dein Code: <code>${account.code || '—'}</code> — Nutze <code>/verify</code> im Discord-Server.</div>`;
+        }
+        document.getElementById('stat-account-id').textContent = account.account_id || '—';
+        document.getElementById('stat-created-at').textContent = formatDate(account.created_at);
       }
 
-      document.getElementById('stat-account-id').textContent = account.account_id || '—';
-      document.getElementById('stat-created-at').textContent = formatDate(account.created_at);
+      showFlowWave(data);
     }
 
     fetch('/api/me', { credentials: 'include' })

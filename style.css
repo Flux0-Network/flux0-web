@@ -834,6 +834,110 @@ kbd {
 .dash-notice--info { background: var(--accent-lt); border: 1px solid #ddd6fe; color: var(--accent); }
 .dash-notice code { font-family: 'JetBrains Mono', monospace; background: rgba(255,255,255,0.6); padding: 2px 8px; border-radius: 4px; font-size: 0.95em; }
 
+/* ── FLOWWAVE DASHBOARD CARD ── */
+.dash-fw-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.dash-fw-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.dash-fw-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.18);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; color: #2563eb;
+}
+.dash-fw-header-info strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
+.dash-fw-header-info span { font-size: 0.78rem; color: var(--muted); }
+
+.dash-fw-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.dash-fw-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+.dash-fw-avatar-placeholder {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.dash-fw-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 2px; }
+.dash-fw-tag { font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; color: var(--dim); }
+.dash-fw-badge {
+  margin-left: auto; flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.75rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 99px;
+}
+.dash-fw-badge--connected { background: rgba(34,197,94,0.1); color: #16a34a; border: 1px solid rgba(34,197,94,0.2); }
+.dash-fw-badge--waiting   { background: rgba(245,158,11,0.1); color: #d97706; border: 1px solid rgba(245,158,11,0.2); }
+
+.dash-fw-fields {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.dash-fw-field {
+  padding: 18px 24px;
+  border-right: 1px solid var(--border);
+}
+.dash-fw-field:last-child { border-right: none; }
+.dash-fw-field-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+}
+.dash-fw-field-value { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; }
+
+.dash-fw-callout {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 24px;
+  border-top: 1px solid var(--border);
+  background: rgba(59,130,246,0.03);
+  font-size: 0.82rem; color: var(--muted); line-height: 1.6;
+}
+.dash-fw-callout svg { flex-shrink: 0; margin-top: 2px; color: #2563eb; }
+
+.dash-fw-empty {
+  padding: 40px 24px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.dash-fw-empty-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.18);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; color: #2563eb;
+  margin-bottom: 4px;
+}
+.dash-fw-empty strong { font-size: 0.95rem; font-weight: 700; }
+.dash-fw-empty p { font-size: 0.85rem; color: var(--muted); max-width: 340px; line-height: 1.65; }
+.dash-fw-empty code { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; background: var(--surface); border: 1px solid var(--border); padding: 1px 6px; border-radius: 4px; color: var(--accent); }
+
 /* ── ERROR PAGE ── */
 .error-page {
   min-height: 100vh;
@@ -1018,6 +1122,11 @@ kbd {
   .dash-stats { grid-template-columns: 1fr; }
   .dash-profile { flex-direction: column; }
   .dash-logout { top: 16px; right: 16px; }
+  .dash-fw-fields { grid-template-columns: 1fr 1fr; }
+  .dash-fw-field:nth-child(2) { border-right: none; }
+  .dash-fw-field:nth-child(3) { border-top: 1px solid var(--border); grid-column: 1 / -1; border-right: none; }
+  .dash-fw-profile { flex-wrap: wrap; }
+  .dash-fw-header { flex-wrap: wrap; }
 
   /* error page */
   .error-card { padding: 32px 20px; }
