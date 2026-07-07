@@ -47,7 +47,7 @@
           </div>
           <h2>Mit Discord einloggen</h2>
           <p>Verbinde deinen Discord-Account um dein Profil und FlowWave zu sehen.</p>
-          <a href="https://discord.com/oauth2/authorize?client_id=1144724108135911554&response_type=code&redirect_uri=http%3A%2F%2Fdash.flux0.dev%2Fapi%2Fcallback&scope=identify+email" class="btn-primary" style="width:100%;justify-content:center">
+          <a href="https://discord.com/oauth2/authorize?client_id=1144724108135911554&response_type=code&redirect_uri=https%3A%2F%2Fflux0.dev%2Fapi%2Fcallback&scope=identify" class="btn-primary" style="width:100%;justify-content:center">
             <svg width="18" height="18" viewBox="0 0 71 55" fill="currentColor"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.5.7a.2.2 0 0 0-.2.1 40.7 40.7 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A37.7 37.7 0 0 0 25.5.8a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.7 4.9a.2.2 0 0 0-.1.1C1.6 18.1-.9 31 .3 43.7a.2.2 0 0 0 .1.1 58.8 58.8 0 0 0 17.7 9 .2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4l1.1-.8a.2.2 0 0 1 .2 0c11.6 5.3 24.1 5.3 35.5 0a.2.2 0 0 1 .2 0l1.1.8a.2.2 0 0 1 0 .4 36 36 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47.1 47.1 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.6 58.6 0 0 0 17.8-9 .2.2 0 0 0 .1-.1c1.5-15.2-2.5-28-10.6-39.7a.2.2 0 0 0-.1-.1ZM23.7 36.1c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Zm23.7 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Z"/></svg>
             Mit Discord einloggen
           </a>
@@ -64,7 +64,7 @@
             <h2 id="dash-username"></h2>
             <span class="dash-id" id="dash-discord-id"></span>
           </div>
-          <a href="http://server.infynix.de:40011/api/logout" class="btn-ghost dash-logout">Ausloggen →</a>
+          <a href="/api/logout" class="btn-ghost dash-logout">Ausloggen →</a>
         </div>
 
         <!-- FlowWave -->
@@ -142,16 +142,17 @@
     function showDashboard(data) {
       document.getElementById('view-dashboard').style.display = 'block';
 
-      document.getElementById('dash-username').textContent = data.username || data.global_name || '—';
-      document.getElementById('dash-discord-id').textContent = data.discord_id || data.id || '';
+      const name = data.global_name || data.username || '—';
+      document.getElementById('dash-username').textContent = name;
+      document.getElementById('dash-discord-id').textContent = data.id || '';
 
       document.getElementById('dash-avatar-wrap')
-        .appendChild(buildAvatar(data.discord_id || data.id, data.avatar, data.username, 128, 'dash-avatar'));
+        .appendChild(buildAvatar(data.id, data.avatar, name, 128, 'dash-avatar'));
 
-      document.getElementById('fw-name').textContent = data.username || data.global_name || '—';
-      document.getElementById('fw-tag').textContent = `ID: ${data.discord_id || data.id || '—'}`;
+      document.getElementById('fw-name').textContent = name;
+      document.getElementById('fw-tag').textContent = `ID: ${data.id || '—'}`;
       document.getElementById('fw-avatar-wrap')
-        .appendChild(buildAvatar(data.discord_id || data.id, data.avatar, data.username, 64, 'dash-fw-avatar'));
+        .appendChild(buildAvatar(data.id, data.avatar, name, 64, 'dash-fw-avatar'));
     }
 
     fetch('/api/me', { credentials: 'include' })
