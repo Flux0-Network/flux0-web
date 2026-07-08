@@ -852,6 +852,20 @@ kbd {
 .update-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; background: var(--surface); border: 1px solid var(--border); padding: 1px 6px; border-radius: 4px; color: var(--text); }
 .update-card--featured { background: linear-gradient(135deg, var(--accent-lt) 0%, #fff 100%); border-color: #ddd6fe; }
 .update-card--featured .update-title { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.update-card--event { border-color: rgba(34,197,94,0.3); background: linear-gradient(135deg, rgba(34,197,94,0.04) 0%, var(--surface) 100%); }
+.update-section { margin-top: 24px; }
+.update-section-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+.update-prize-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.update-prize-list li { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 0.88rem; }
+.prize-rank { font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
+.prize-rank--gold   { background: rgba(234,179,8,0.12);  color: #b45309; border: 1px solid rgba(234,179,8,0.3); }
+.prize-rank--silver { background: rgba(148,163,184,0.12); color: #475569; border: 1px solid rgba(148,163,184,0.3); }
+.prize-rank--bronze { background: rgba(180,83,9,0.1);    color: #92400e; border: 1px solid rgba(180,83,9,0.2); }
+.prize-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.prize-badge { font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--accent-lt); color: var(--accent); border: 1px solid #ddd6fe; font-family: 'JetBrains Mono', monospace; }
+.update-rules { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.update-rules li { font-size: 0.88rem; color: var(--muted); padding-left: 16px; position: relative; line-height: 1.6; }
+.update-rules li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
 .news-empty { text-align: center; padding: 64px 0; color: var(--dim); font-size: 0.9rem; }
 
 /* ── PRODUCTS ── */
