@@ -1118,7 +1118,7 @@ kbd {
   .container { padding: 0 16px; }
 
   /* navbar */
-  .nav-links, .powered, .btn-join { display: none; }
+  .nav-links, .btn-join { display: none; }
   .nav-user-link { display: flex; }
   .nav-toggle { display: flex; }
   .nav-links.open {
