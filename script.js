@@ -1,5 +1,28 @@
 'use strict';
 
+// ── Theme toggle ──
+(function () {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('flux0-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved) {
+    root.setAttribute('data-theme', saved);
+  } else if (prefersDark) {
+    root.setAttribute('data-theme', 'dark');
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('flux0-theme', next);
+    });
+  });
+})();
+
 // ── Main nav mobile toggle ──
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks  = document.querySelector('.nav-links');

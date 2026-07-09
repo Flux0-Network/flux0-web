@@ -1236,3 +1236,129 @@ kbd {
   .product-icon { width: 40px; height: 40px; font-size: 1rem; }
   .docs-mobile-toggle span { display: none; }
 }
+
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.theme-toggle:hover { border-color: var(--border-md); color: var(--text); background: var(--surface); }
+.icon-sun  { display: none; }
+.icon-moon { display: block; }
+
+/* ── ANIMATED HERO ── */
+.hero { position: relative; overflow: hidden; }
+.hero > .container { position: relative; z-index: 1; }
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 800px 600px at 65% 50%, rgba(124,58,237,0.07) 0%, transparent 70%);
+  animation: heroGlow 9s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 500px 380px at 15% 80%, rgba(59,130,246,0.05) 0%, transparent 60%);
+  animation: heroGlow2 12s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes heroGlow {
+  0%, 100% { opacity: 1; transform: translate(0, 0) scale(1); }
+  50% { opacity: 0.65; transform: translate(40px, -25px) scale(1.06); }
+}
+@keyframes heroGlow2 {
+  0%, 100% { opacity: 0.55; transform: translate(0, 0) scale(1); }
+  50% { opacity: 1; transform: translate(-25px, 18px) scale(1.1); }
+}
+
+/* ── DARK MODE ── */
+:root[data-theme="dark"] {
+  --bg:        #0a0a0a;
+  --surface:   #111111;
+  --border:    #27272a;
+  --border-md: #3f3f46;
+  --text:      #fafafa;
+  --muted:     #a1a1aa;
+  --dim:       #71717a;
+  --accent:    #8b5cf6;
+  --accent-lt: rgba(139,92,246,0.12);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 16px -2px rgb(0 0 0 / 0.5), 0 2px 6px -2px rgb(0 0 0 / 0.4);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #0a0a0a;
+    --surface:   #111111;
+    --border:    #27272a;
+    --border-md: #3f3f46;
+    --text:      #fafafa;
+    --muted:     #a1a1aa;
+    --dim:       #71717a;
+    --accent:    #8b5cf6;
+    --accent-lt: rgba(139,92,246,0.12);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 16px -2px rgb(0 0 0 / 0.5), 0 2px 6px -2px rgb(0 0 0 / 0.4);
+  }
+}
+
+/* Dark navbar / docs-header backgrounds */
+:root[data-theme="dark"] .navbar,
+:root[data-theme="dark"] .docs-header {
+  background: rgba(10,10,10,0.88);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .navbar,
+  :root:not([data-theme="light"]) .docs-header {
+    background: rgba(10,10,10,0.88);
+  }
+}
+
+/* Dark mobile nav dropdown */
+:root[data-theme="dark"] .nav-links.open {
+  background: rgba(10,10,10,0.98);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nav-links.open {
+    background: rgba(10,10,10,0.98);
+  }
+}
+
+/* Dark hero label border */
+:root[data-theme="dark"] .hero-label {
+  border-color: rgba(139,92,246,0.25);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-label {
+    border-color: rgba(139,92,246,0.25);
+  }
+}
+
+/* Dark update-card featured */
+:root[data-theme="dark"] .update-card--featured {
+  background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, var(--surface) 100%);
+  border-color: rgba(139,92,246,0.25);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .update-card--featured {
+    background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, var(--surface) 100%);
+    border-color: rgba(139,92,246,0.25);
+  }
+}
+
+/* Dark: show sun icon, hide moon icon */
+:root[data-theme="dark"] .icon-sun { display: block; }
+:root[data-theme="dark"] .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-sun  { display: block; }
+  :root:not([data-theme="light"]) .icon-moon { display: none; }
+}
