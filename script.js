@@ -31,6 +31,37 @@ navLinks?.querySelectorAll('a').forEach((l) =>
   l.addEventListener('click', () => navLinks.classList.remove('open'))
 );
 
+// ── Counter animation ──
+(function () {
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1400;
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(ease * target).toLocaleString('de-DE') + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.stats-num').forEach(function (el) {
+    observer.observe(el);
+  });
+})();
+
 // ── Docs sidebar mobile drawer ──
 const docsToggle  = document.getElementById('docsMobileToggle');
 const docsOverlay = document.getElementById('docsOverlay');

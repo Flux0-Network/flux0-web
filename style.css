@@ -752,6 +752,43 @@ kbd {
 .impressum-link { color: var(--accent); text-decoration: none; font-weight: 500; }
 .impressum-link:hover { text-decoration: underline; }
 
+/* ── STATS / COUNTER ── */
+.stats-section {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 0;
+  background: var(--surface);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 24px;
+  border-right: 1px solid var(--border);
+}
+.stats-item:last-child { border-right: none; }
+.stats-num {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.stats-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 500;
+  text-align: center;
+}
+
 /* ── LOGO CLOUD ── */
 .logo-cloud-section {
   padding: 40px 0;
@@ -1113,6 +1150,12 @@ kbd {
   .docs-header-search { display: none; }
   .docs-sidebar-close { display: block; }
 
+  /* stats */
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .stats-item:nth-child(2) { border-right: none; }
+  .stats-item:nth-child(1),
+  .stats-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+
   /* main grids */
   .features-grid { grid-template-columns: repeat(2,1fr); }
   .products-grid { grid-template-columns: repeat(2,1fr); }
@@ -1189,6 +1232,12 @@ kbd {
   /* faq */
   .faq-item summary { padding: 16px 18px; font-size: 0.9rem; }
   .faq-item p { padding: 0 18px 16px; }
+
+  /* stats mobile */
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .stats-item:nth-child(2) { border-right: none; }
+  .stats-item:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
+  .stats-item:nth-child(4) { border-top: 1px solid var(--border); }
 
   /* logo cloud */
   .logo-cloud-item { padding: 8px 12px; font-size: 0.8rem; }
