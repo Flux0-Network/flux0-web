@@ -33,33 +33,60 @@ navLinks?.querySelectorAll('a').forEach((l) =>
 
 // ── Counter animation ──
 (function () {
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.target, 10);
+  function formatNum(n, raw) {
+    if (raw) return String(n);
+    return n.toLocaleString('de-DE');
+  }
+
+  function animateCounter(el, target) {
     const suffix = el.dataset.suffix || '';
+    const raw    = !!el.dataset.raw;
     const duration = 1400;
     const start = performance.now();
     function step(now) {
-      const elapsed = now - start;
+      const elapsed  = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(ease * target).toLocaleString('de-DE') + suffix;
+      const ease     = 1 - Math.pow(1 - progress, 3);
+      el.textContent = formatNum(Math.round(ease * target), raw) + suffix;
       if (progress < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
 
+  // Animate static counters on scroll-in
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      if (el.dataset.target) {
+        animateCounter(el, parseInt(el.dataset.target, 10));
+        observer.unobserve(el);
       }
     });
   }, { threshold: 0.3 });
 
-  document.querySelectorAll('.stats-num').forEach(function (el) {
+  document.querySelectorAll('.stats-num[data-target]').forEach(function (el) {
     observer.observe(el);
   });
+
+  // Live Discord server stats via public invite API
+  var INVITE = 'D9GwqWpwHT';
+  var elMembers = document.getElementById('stat-members');
+  var elOnline  = document.getElementById('stat-online');
+  if (elMembers || elOnline) {
+    fetch('https://discord.com/api/v9/invites/' + INVITE + '?with_counts=true')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var members = data.approximate_member_count;
+        var online  = data.approximate_presence_count;
+        if (elMembers && members) animateCounter(elMembers, members);
+        if (elOnline  && online)  animateCounter(elOnline, online);
+      })
+      .catch(function () {
+        if (elMembers) elMembers.textContent = '1.200+';
+        if (elOnline)  elOnline.textContent  = '—';
+      });
+  }
 })();
 
 // ── Docs sidebar mobile drawer ──
