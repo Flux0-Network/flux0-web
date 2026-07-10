@@ -89,6 +89,28 @@ navLinks?.querySelectorAll('a').forEach((l) =>
   }
 })();
 
+// ── Discord partner avatars ──
+(function () {
+  var partners = [
+    { invite: 'busbahnhof', imgId: 'busbahnhof-avatar', fallbackId: 'busbahnhof-fallback' }
+  ];
+  partners.forEach(function (p) {
+    fetch('https://discord.com/api/v9/invites/' + p.invite)
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var guild = data.guild;
+        if (!guild || !guild.icon) return;
+        var img = document.getElementById(p.imgId);
+        if (!img) return;
+        img.src = 'https://cdn.discordapp.com/icons/' + guild.id + '/' + guild.icon + '.webp?size=64';
+        img.style.display = '';
+        var fb = document.getElementById(p.fallbackId);
+        if (fb) fb.style.display = 'none';
+      })
+      .catch(function () {});
+  });
+})();
+
 // ── Docs sidebar mobile drawer ──
 const docsToggle  = document.getElementById('docsMobileToggle');
 const docsOverlay = document.getElementById('docsOverlay');
