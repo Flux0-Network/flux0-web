@@ -33,7 +33,7 @@
         <li><a href="index.html#news">Announcements</a></li>
         <li><a href="marketplace.html" class="nav-active">Marketplace</a></li>
         <li><a href="docs.html">Docs</a></li>
-        <li class="nav-login"><a href="dashboard.html">Login</a></li>
+        <li class="nav-login" id="nav-login-li"><a href="dashboard.html">Login</a></li>
       </ul>
       <button class="theme-toggle" id="themeToggle" aria-label="Dark Mode umschalten">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
@@ -194,5 +194,30 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    fetch('/api/me', { credentials: 'include' })
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data) return;
+        const loginBtn = document.getElementById('nav-login-btn');
+        const userLink = document.getElementById('nav-user-link');
+        const name = data.global_name || data.username || '?';
+        loginBtn.style.display = 'none';
+        if (data.avatar) {
+          const img = document.createElement('img');
+          img.className = 'nav-user-avatar';
+          img.src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=64`;
+          img.alt = name;
+          userLink.appendChild(img);
+        } else {
+          const ph = document.createElement('div');
+          ph.className = 'nav-user-placeholder';
+          ph.textContent = name[0].toUpperCase();
+          userLink.appendChild(ph);
+        }
+        userLink.style.display = 'flex';
+      })
+      .catch(() => {});
+  </script>
 </body>
 </html>
