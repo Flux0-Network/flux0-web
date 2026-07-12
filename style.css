@@ -838,7 +838,7 @@ kbd {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 48px 0;
-  background: var(--surface);
+  background: var(--bg);
 }
 .stats-grid {
   display: grid;
@@ -1707,16 +1707,16 @@ kbd {
 
 /* ── Stats strip ── */
 :root[data-theme="dark"] .stats-section {
-  background: linear-gradient(180deg, rgba(139,92,246,0.04) 0%, var(--surface) 100%);
+  background: var(--bg);
   border-color: rgba(255,255,255,0.05);
 }
-:root[data-theme="dark"] .stats-num { color: var(--accent); }
+:root[data-theme="dark"] .stats-num { color: #ffffff; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .stats-section {
-    background: linear-gradient(180deg, rgba(139,92,246,0.04) 0%, var(--surface) 100%);
+    background: var(--bg);
     border-color: rgba(255,255,255,0.05);
   }
-  :root:not([data-theme="light"]) .stats-num { color: var(--accent); }
+  :root:not([data-theme="light"]) .stats-num { color: #ffffff; }
 }
 
 /* ── Logo cloud ── */
