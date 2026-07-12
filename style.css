@@ -754,6 +754,85 @@ kbd {
 .impressum-link { color: var(--accent); text-decoration: none; font-weight: 500; }
 .impressum-link:hover { text-decoration: underline; }
 
+/* ── MARKETPLACE TEASER (landing page) ── */
+.mkt-teaser {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.mkt-teaser-left .section-title { margin-bottom: 14px; }
+.mkt-teaser-left .section-sub   { margin-bottom: 24px; }
+
+.mkt-teaser-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.mkt-teaser-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.mkt-teaser-tag--soon {
+  background: var(--accent-lt);
+  border-color: #ddd6fe;
+  color: var(--accent);
+}
+
+.mkt-teaser-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.mkt-teaser-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px -8px rgba(124,58,237,0.12);
+}
+.mkt-teaser-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.mkt-teaser-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+}
+.mkt-teaser-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.mkt-teaser-list li {
+  display: flex;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--muted);
+  align-items: flex-start;
+}
+.mkt-teaser-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 860px) {
+  .mkt-teaser { grid-template-columns: 1fr; gap: 32px; }
+}
+
 /* ── STATS / COUNTER ── */
 .stats-section {
   border-top: 1px solid var(--border);
@@ -1657,6 +1736,24 @@ kbd {
   :root:not([data-theme="light"]) .logo-cloud-item { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08); }
   :root:not([data-theme="light"]) .logo-cloud-item:hover { background: rgba(88,101,242,0.08); border-color: #5865f2; box-shadow: 0 0 20px rgba(88,101,242,0.15); }
   :root:not([data-theme="light"]) .logo-cloud-item--add:hover { background: rgba(167,139,250,0.08); border-color: var(--accent); box-shadow: 0 0 20px rgba(139,92,246,0.15); }
+}
+
+/* ── Marketplace teaser card ── */
+:root[data-theme="dark"] .mkt-teaser-card {
+  background: linear-gradient(160deg, rgba(167,139,250,0.05) 0%, var(--surface) 50%);
+}
+:root[data-theme="dark"] .mkt-teaser-card:hover {
+  border-color: rgba(167,139,250,0.4);
+  box-shadow: 0 0 0 1px rgba(167,139,250,0.12), 0 16px 48px rgba(0,0,0,0.5);
+}
+:root[data-theme="dark"] .mkt-teaser-tag--soon {
+  background: rgba(167,139,250,0.1);
+  border-color: rgba(167,139,250,0.22);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .mkt-teaser-card { background: linear-gradient(160deg, rgba(167,139,250,0.05) 0%, var(--surface) 50%); }
+  :root:not([data-theme="light"]) .mkt-teaser-card:hover { border-color: rgba(167,139,250,0.4); box-shadow: 0 0 0 1px rgba(167,139,250,0.12), 0 16px 48px rgba(0,0,0,0.5); }
+  :root:not([data-theme="light"]) .mkt-teaser-tag--soon { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.22); }
 }
 
 /* ── Marketplace card ── */
