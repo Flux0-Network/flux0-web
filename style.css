@@ -1406,6 +1406,10 @@ kbd {
   background: rgba(34,197,94,0.1); color: #16a34a;
   border: 1px solid rgba(34,197,94,0.2);
 }
+.mkt-badge--unavail {
+  background: rgba(113,113,122,0.1); color: var(--dim);
+  border-color: rgba(113,113,122,0.2);
+}
 
 .mkt-title {
   font-size: 1.35rem;
