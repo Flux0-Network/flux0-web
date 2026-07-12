@@ -127,6 +127,8 @@ body {
 }
 .nav-user-link:hover .nav-user-avatar { border-color: var(--accent); }
 
+.nav-login { display: none; }
+
 .nav-toggle {
   display: none;
   flex-direction: column;
