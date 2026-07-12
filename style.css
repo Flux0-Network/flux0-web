@@ -1430,31 +1430,8 @@ kbd {
 .icon-sun  { display: none; }
 .icon-moon { display: block; }
 
-/* ── ANIMATED HERO ── */
-.hero { position: relative; overflow: hidden; }
-.hero > .container { position: relative; z-index: 1; }
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 800px 600px at 65% 50%, rgba(124,58,237,0.07) 0%, transparent 70%);
-  animation: heroGlow 9s ease-in-out infinite;
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 500px 380px at 15% 80%, rgba(59,130,246,0.05) 0%, transparent 60%);
-  animation: heroGlow2 12s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes heroGlow {
-  0%, 100% { opacity: 1; transform: translate(0, 0) scale(1); }
-  50% { opacity: 0.65; transform: translate(40px, -25px) scale(1.06); }
-}
-@keyframes heroGlow2 {
-  0%, 100% { opacity: 0.55; transform: translate(0, 0) scale(1); }
-  50% { opacity: 1; transform: translate(-25px, 18px) scale(1.1); }
-}
+/* ── HERO ── */
+.hero { position: relative; }
 
 /* ══════════════════════════════════════
    DARK MODE — full redesign
@@ -1520,22 +1497,6 @@ kbd {
   :root:not([data-theme="light"]) .nav-links.open {
     background: rgba(7,7,10,0.97);
     border-bottom-color: rgba(255,255,255,0.07);
-  }
-}
-
-/* ── Hero: stronger orbs ── */
-:root[data-theme="dark"] .hero::before {
-  background: radial-gradient(ellipse 900px 700px at 65% 50%, rgba(139,92,246,0.18) 0%, transparent 70%);
-}
-:root[data-theme="dark"] .hero::after {
-  background: radial-gradient(ellipse 600px 450px at 15% 85%, rgba(59,130,246,0.11) 0%, transparent 60%);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .hero::before {
-    background: radial-gradient(ellipse 900px 700px at 65% 50%, rgba(139,92,246,0.18) 0%, transparent 70%);
-  }
-  :root:not([data-theme="light"]) .hero::after {
-    background: radial-gradient(ellipse 600px 450px at 15% 85%, rgba(59,130,246,0.11) 0%, transparent 60%);
   }
 }
 
