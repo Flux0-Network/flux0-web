@@ -1459,6 +1459,34 @@ kbd {
   margin-top: 1px;
 }
 
+.mkt-addon {
+  background: rgba(167,139,250,0.06);
+  border: 1px solid rgba(167,139,250,0.15);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mkt-addon-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.mkt-addon-desc {
+  font-size: 13px;
+  color: var(--muted);
+}
+.mkt-addon-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 2px;
+}
+
 .mkt-footer {
   display: flex;
   align-items: center;
